@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 
-function Description() {
+export default function Description() {
 	return (
 		<div className='flex h-screen w-full flex-col items-center justify-between space-y-4 bg-white bg-tshirt-img bg-cover bg-center p-4 text-lg text-white'>
 			<div className='flex-none'></div>
@@ -19,11 +19,7 @@ function Description() {
 				</Link>
 			</div>
 
-			<div className='space-x-2'>
-				<input type='radio' className='accent-black'></input>
-			</div>
+			<div></div>
 		</div>
 	)
 }
-
-export default Description

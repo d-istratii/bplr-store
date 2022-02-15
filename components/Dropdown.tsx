@@ -9,20 +9,21 @@ function Dropdown(props: any) {
 
 	return (
 		<div>
-			<div className='flex space-x-2'>
+			<div className='flex pl-2'>
 				<motion.button
 					whileHover={{ scale: 1.1, transition: { duration: 0.3 } }}
-					className='font-black tracking-widest text-white sm:hidden'
+					className='text-lg font-black tracking-widest text-white sm:hidden'
 				>
 					<Link href='/'>BPLR</Link>
 				</motion.button>
 
-				<div className='ml-4 text-white sm:hidden'>SHOP</div>
+				<div className='pl-4 text-lg text-white sm:hidden'>SHOP</div>
 
 				<motion.button
 					onClick={() => setOpen(!open)}
+					whileHover={{ scale: 1.2, transition: { duration: 0.3 } }}
 					animate={{ rotate: open ? 180 : 0 }}
-					className='ml-1'
+					className='ml-1 sm:ml-0'
 				>
 					<IconContext.Provider value={{ color: 'white' }}>
 						<AiOutlineDown />

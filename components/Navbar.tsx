@@ -5,7 +5,8 @@ import Dropdown from './Dropdown'
 import Login from './Login'
 import Modal from '@mui/material/Modal'
 import { IconContext } from 'react-icons'
-import { AiOutlineShoppingCart, AiOutlineLogin } from 'react-icons/ai'
+import { RiAccountCircleLine, RiHeart2Line } from 'react-icons/ri'
+import { AiOutlineShoppingCart, AiOutlineSearch } from 'react-icons/ai'
 
 function Navbar(props: any) {
 	const [loginModal, setLoginModal] = useState(false)
@@ -24,13 +25,13 @@ function Navbar(props: any) {
 				<Login loginModal={loginModal} setLoginModal={setLoginModal} />
 			</Modal>
 
-			<nav className='fixed inset-x-0 top-0 flex h-16 items-center justify-between bg-neutral-900 p-4'>
+			<nav className='from fixed inset-x-0 top-0 z-10 flex h-16 items-center justify-between bg-gradient-to-b from-neutral-900 p-4'>
 				<div className='flex space-x-4'>
 					<Dropdown>
 						<motion.div
 							animate={{ y: 12 }}
 							transition={{ ease: 'easeOut', duration: 0.4 }}
-							className='absolute mt-5 flex flex-col items-start space-y-3 text-white'
+							className='absolute ml-2 mt-1 flex flex-col items-start space-y-3 text-white'
 						>
 							<motion.button whileHover={{ scale: 1.05 }}>
 								<Link href='/designer/tshirts'>T-SHIRTS - SHORT SLEEVES</Link>
@@ -58,28 +59,42 @@ function Navbar(props: any) {
 				<div>
 					<motion.button
 						whileHover={{ scale: 1.1, transition: { duration: 0.3 } }}
-						className='invisible ml-8 text-2xl font-black tracking-widest text-white sm:visible'
+						className='invisible  text-2xl font-black tracking-widest text-white sm:visible'
 					>
 						<Link href='/'>BPLR</Link>
 					</motion.button>
 				</div>
 
 				<div className='flex space-x-4 text-white'>
-					<IconContext.Provider value={{ size: '21px' }}>
-						<motion.button
-							whileHover={{ scale: 1.2, transition: { duration: 0.3 } }}
-							onClick={openModal}
-						>
-							<AiOutlineLogin />
-						</motion.button>
+					<IconContext.Provider value={{ size: '30px' }}>
+						<button>
+							<AiOutlineSearch />
+						</button>
 					</IconContext.Provider>
 
-					<IconContext.Provider value={{ size: '21px' }}>
-						<motion.button whileHover={{ scale: 1.2, transition: { duration: 0.3 } }}>
-							<AiOutlineShoppingCart>
-								<Link href='/cart' />
-							</AiOutlineShoppingCart>
-						</motion.button>
+					<IconContext.Provider value={{ size: '30px' }}>
+						<button onClick={openModal}>
+							<RiAccountCircleLine />
+						</button>
+					</IconContext.Provider>
+
+					<IconContext.Provider value={{ size: '30px' }}>
+						<button>
+							<RiHeart2Line />
+						</button>
+					</IconContext.Provider>
+
+					<IconContext.Provider value={{ size: '30px' }}>
+						<button>
+							<Link href='/cart'>
+								<div className='pr-4'>
+									<AiOutlineShoppingCart />
+									<div className='absolute bottom-8 right-2 h-6 w-10 rounded-full border border-neutral-900 bg-neutral-100 font-semibold text-neutral-900'>
+										<p className='text-neutral-700'>99+</p>
+									</div>
+								</div>
+							</Link>
+						</button>
 					</IconContext.Provider>
 				</div>
 			</nav>

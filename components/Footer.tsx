@@ -4,7 +4,7 @@ import { FaInstagram, FaFacebook } from 'react-icons/fa'
 
 function Footer() {
 	return (
-		<footer className='grid grid-row justify-items-center space-y-3 pt-3'>
+		<footer className='grid-row grid justify-items-center space-y-3 pt-3'>
 			{/* Social links */}
 			<div className='flex space-x-3'>
 				<IconContext.Provider value={{ size: '21px' }}>

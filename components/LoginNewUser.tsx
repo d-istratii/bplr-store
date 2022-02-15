@@ -34,16 +34,14 @@ function LoginExistingUser(props: any) {
 
 	return (
 		<motion.div
-			className='text-black bg-white p-8 rounded-lg sm:w-screen w-min space-y-2'
-			/* <motion.div className="bg-white p-8 rounded-lg shadow-2xl sm:w-screen sm:h-1/3 md:w-1/2 lg:w-1/3 xl:w-1/4 h-2/3 space-y-2 border border-black"
-			 */
-			animate={{ y: 16 }}
+			className='w-min space-y-2 rounded-lg bg-white p-8 text-black sm:w-screen'
+			animate={{ y: 0 }}
 			transition={{
 				type: 'spring',
 				stiffness: 100,
 			}}
 		>
-			<div className='flex flex-row justify-between mb-4'>
+			<div className='mb-4 flex flex-row justify-between'>
 				<h1 className='text-2xl '>Come on in</h1>
 
 				<motion.button
@@ -57,14 +55,14 @@ function LoginExistingUser(props: any) {
 
 			<div className='flex space-x-4 border-b border-gray-400'>
 				<button
-					className='font-bold border-b-2 border-black'
+					className='border-b-2 border-black font-bold'
 					onClick={() => props.setNewUser(false)}
 				>
 					SIGN IN
 				</button>
 
 				<button
-					className='text-gray-500 hover:text-black focus:font-black  focus:text-black hover:filter'
+					className='text-gray-500 hover:text-black hover:filter  focus:font-black focus:text-black'
 					onClick={() => props.setNewUser(true)}
 				>
 					<div>I'M NEW HERE</div>
@@ -88,7 +86,7 @@ function LoginExistingUser(props: any) {
 				<label className='mt-2 text-lg'>Password</label>
 				<input
 					type='password'
-					className='border border-gray-400 py-2 px-7 rounded w-full'
+					className='w-full rounded border border-gray-400 py-2 px-7'
 					placeholder='********'
 				></input>
 
@@ -98,12 +96,11 @@ function LoginExistingUser(props: any) {
 				</div>
 
 				<Link href='/forgot'>
-					{' '}
 					<button className='text-sm'>Forgot your password?</button>
 				</Link>
 
 				<div className='flex flex-row justify-center'>
-					<button className='text-white font-semibold bg-gray-800 py-2 w-96 rounded-xl'>
+					<button className='w-96 rounded-xl bg-gray-800 py-2 font-semibold text-white'>
 						Sign in
 					</button>
 				</div>
@@ -112,7 +109,7 @@ function LoginExistingUser(props: any) {
 			<div className='flex flex-row justify-center'>OR</div>
 
 			<div className='flex flex-row justify-center'>
-				<button className='grid grid-cols-5 border border-black rounded py-2 w-96'>
+				<button className='grid w-96 grid-cols-5 rounded border border-black py-2'>
 					<IconContext.Provider value={{ size: '24px' }}>
 						<FcGoogle className='ml-4' />
 					</IconContext.Provider>
@@ -121,7 +118,7 @@ function LoginExistingUser(props: any) {
 			</div>
 
 			<div className='flex flex-row justify-center'>
-				<button className='grid grid-cols-5 border border-black rounded py-2 w-96'>
+				<button className='grid w-96 grid-cols-5 rounded border border-black py-2'>
 					<IconContext.Provider value={{ size: '24px' }}>
 						<FaApple className='ml-4' />
 					</IconContext.Provider>
@@ -130,7 +127,7 @@ function LoginExistingUser(props: any) {
 			</div>
 
 			<div className='flex flex-row justify-center '>
-				<button className='grid grid-cols-5 border border-black rounded py-2 w-96'>
+				<button className='grid w-96 grid-cols-5 rounded border border-black py-2'>
 					<IconContext.Provider value={{ color: '#3b5998', size: '24px' }}>
 						<MdFacebook className='ml-4' />
 					</IconContext.Provider>
