@@ -1,4 +1,3 @@
-import React, { useState } from 'react'
 import { IconContext } from 'react-icons'
 import { FaApple } from 'react-icons/fa'
 import { FcGoogle } from 'react-icons/fc'
@@ -6,41 +5,9 @@ import { MdFacebook } from 'react-icons/md'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 
-function LoginExistingUser(props: any) {
-	const [emailInput, setEmailInput] = useState(' ')
-	const [emailStyle, setEmailStyle] = useState(
-		'border border-gray-400 py-2 px-7 rounded w-full'
-	)
-
-	function handleEmail() {
-		switch (emailInput) {
-			case 'da':
-				setEmailStyle(
-					'border-2 border-red-400 focus:border-red-400 py-2 px-7 rounded w-full'
-				)
-				console.log(emailInput)
-				break
-			default:
-				console.log(emailInput)
-				break
-		}
-	}
-
-	const handleSubmit = (e: React.FormEvent<EventTarget>) => {
-		e.preventDefault()
-		console.log('Email input: ' + emailInput)
-		handleEmail()
-	}
-
+export default function LoginNewUser(props: any) {
 	return (
-		<motion.div
-			className='w-min space-y-2 rounded-lg bg-white p-8 text-black sm:w-screen'
-			animate={{ y: 0 }}
-			transition={{
-				type: 'spring',
-				stiffness: 100,
-			}}
-		>
+		<div className='h-2/3 w-min space-y-2 rounded-lg bg-white p-8 text-black sm:w-screen'>
 			<div className='mb-4 flex flex-row justify-between'>
 				<h1 className='text-2xl '>Come on in</h1>
 
@@ -53,55 +20,69 @@ function LoginExistingUser(props: any) {
 				</motion.button>
 			</div>
 
-			<div className='flex space-x-4 border-b border-gray-400'>
+			<div className='flex space-x-4 border-b border-gray-400 text-gray-500'>
 				<button
-					className='border-b-2 border-black font-bold'
+					className='hover:text-black focus:font-black focus:text-black'
 					onClick={() => props.setNewUser(false)}
 				>
 					SIGN IN
 				</button>
 
 				<button
-					className='text-gray-500 hover:text-black hover:filter  focus:font-black focus:text-black'
+					className='border-b-2 border-black font-black text-black'
 					onClick={() => props.setNewUser(true)}
 				>
-					<div>I'M NEW HERE</div>
+					<div>I&#39;M NEW HERE</div>
 				</button>
 			</div>
 
-			<form autoComplete='off' onSubmit={handleSubmit}>
-				<div className='flex flex-col'>
-					<label className='mt-2 text-lg'>E-mail address</label>
-					<input
-						// className="border border-gray-400 py-2 px-7 rounded w-full"
-						className={emailStyle}
-						placeholder='jane.smith@example.com'
-						type='text'
-						onChange={e => {
-							setEmailInput(e.target.value)
-						}}
-					/>
-				</div>
+			<form autoComplete='off'>
+				<label className='mt-6' htmlFor='name'>
+					Name
+				</label>
+				<input
+					type='text'
+					className='w-full rounded border border-gray-400 py-2 px-7'
+					placeholder='Jane Smith'
+				></input>
+				<p className='text-rose-500'></p>
 
-				<label className='mt-2 text-lg'>Password</label>
+				<label htmlFor='email'>E-mail address</label>
+				<input
+					className='w-full rounded border border-gray-400 py-2 px-7'
+					placeholder='jane.smith@example.com'
+				></input>
+				<p className='text-rose-500'></p>
+
+				<label htmlFor='password'>Password</label>
 				<input
 					type='password'
 					className='w-full rounded border border-gray-400 py-2 px-7'
 					placeholder='********'
 				></input>
+				<p className='text-rose-500'></p>
 
-				<div className='flex'>
-					<input type='checkbox' className='mt-1 mr-1 accent-black'></input>
-					<div>Keep me signed in.</div>
+				<div className='text-sm'>
+					By registering, you agree with our
+					<Link href='/terms-and-conditions'> </Link>
+					<Link href='/terms-and-conditions' passHref>
+						<button className='underline hover:text-gray-600'>
+							Terms & Conditions
+						</button>
+					</Link>
+					<Link href='/terms-and-conditions'> </Link>
+					and
+					<Link href='/privacy-policy'> </Link>
+					<Link href='/privacy-policy' passHref>
+						<button className='underline hover:text-gray-600'>
+							Privacy and Cookie Policy
+						</button>
+					</Link>
 				</div>
 
-				<Link href='/forgot'>
-					<button className='text-sm'>Forgot your password?</button>
-				</Link>
-
 				<div className='flex flex-row justify-center'>
-					<button className='w-96 rounded-xl bg-gray-800 py-2 font-semibold text-white'>
-						Sign in
+					<button className='mt-4 w-96 rounded-xl bg-gray-800 py-2 font-semibold text-white'>
+						Register
 					</button>
 				</div>
 			</form>
@@ -134,14 +115,6 @@ function LoginExistingUser(props: any) {
 					<div className='col-span-3 font-bold'>Continue with Facebook</div>
 				</button>
 			</div>
-
-			<div className='flex flex-row justify-center'>
-				<button className='mt-4' onClick={() => props.setNewUser(true)}>
-					New to BPLR? Register.
-				</button>
-			</div>
-		</motion.div>
+		</div>
 	)
 }
-
-export default LoginExistingUser

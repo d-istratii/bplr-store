@@ -86,7 +86,7 @@ function Navbar(props: any) {
 
 					<IconContext.Provider value={{ size: '30px' }}>
 						<button>
-							<Link href='/cart'>
+							<Link href='/cart' passHref>
 								<div className='pr-4'>
 									<AiOutlineShoppingCart />
 									<div className='absolute bottom-8 right-2 h-6 w-10 rounded-full border border-neutral-900 bg-neutral-100 font-semibold text-neutral-900'>

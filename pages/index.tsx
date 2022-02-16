@@ -5,7 +5,7 @@ import Footer from 'components/Footer'
 
 export default function Home() {
 	return (
-		<div className='font-Sora'>
+		<div className='bg-neutral-900 font-Sora'>
 			<Navbar />
 			<Slider />
 			<Contact />

@@ -44,14 +44,7 @@ function LoginExistingUser(props: any) {
 	}
 
 	return (
-		<motion.div
-			className='w-min space-y-2 rounded-lg bg-white p-8 text-black'
-			animate={{ y: 0 }}
-			transition={{
-				type: 'spring',
-				stiffness: 100,
-			}}
-		>
+		<div className='w-min space-y-2 rounded-lg bg-white p-8 text-black sm:h-fit sm:w-screen'>
 			<div className='mb-4 flex flex-row justify-between'>
 				<h1 className='text-2xl '>Come on in</h1>
 
@@ -76,7 +69,7 @@ function LoginExistingUser(props: any) {
 					className='text-gray-500 hover:text-black hover:filter  focus:font-black focus:text-black'
 					onClick={() => props.setNewUser(true)}
 				>
-					<div>I'M NEW HERE</div>
+					<div>I&#39;M NEW HERE</div>
 				</button>
 			</div>
 
@@ -151,7 +144,7 @@ function LoginExistingUser(props: any) {
 					New to BPLR? Register.
 				</button>
 			</div>
-		</motion.div>
+		</div>
 	)
 }
 

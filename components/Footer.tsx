@@ -1,29 +1,69 @@
 import React from 'react'
 import { IconContext } from 'react-icons'
-import { FaInstagram, FaFacebook } from 'react-icons/fa'
+import { FaInstagram, FaFacebook, FaTwitter } from 'react-icons/fa'
+import { motion } from 'framer-motion'
+import Link from 'next/link'
 
 function Footer() {
 	return (
-		<footer className='grid-row grid justify-items-center space-y-3 pt-3'>
-			{/* Social links */}
-			<div className='flex space-x-3'>
-				<IconContext.Provider value={{ size: '21px' }}>
-					<button>
-						<FaInstagram />
-					</button>
-				</IconContext.Provider>
-
-				<p>/</p>
-
-				<IconContext.Provider value={{ size: '21px' }}>
-					<button>
-						<FaFacebook />
-					</button>
-				</IconContext.Provider>
+		<footer className='grid grid-cols-3 place-items-center gap-4 bg-neutral-900 p-8 sm:grid-cols-2 sm:place-items-start'>
+			{/* Shop */}
+			<div className='flex flex-col text-white'>
+				<h1 className='font-bold'>SHOP</h1>
+				<h1 className='font-bold'>-</h1>
+				<Link href='/designer'>All Products</Link>
+				<Link href='/tshirts'>T-Shirts</Link>
+				<Link href='/shirts'>Shirts</Link>
+				<Link href='/accessories'>Accessories</Link>
+				<Link href='/pants'>Pants</Link>
+				<Link href='/shoes'>Shoes</Link>
 			</div>
 
-			{/* Disclaimer  */}
-			<div>© 2021 / BIPOLAR CLOTHING</div>
+			{/* Support */}
+			<div className='flex flex-col text-white'>
+				<h1 className='font-bold'>SUPPORT</h1>
+				<h1 className='font-bold'>-</h1>
+				<Link href='/about'>About</Link>
+				<Link href='/sizing'>Sizing</Link>
+				<Link href='/terms-and-conditions'>Terms Policy</Link>
+				<Link href='/shipping'>Shipping Policy</Link>
+				<Link href='/refund'>Refund Policy</Link>
+				<Link href='/faq'>FAQ</Link>
+			</div>
+
+			{/* Social & Disclaimer  */}
+			<div className='flex flex-col items-center space-y-0 bg-neutral-900 text-white sm:items-start'>
+				<motion.button
+					whileHover={{ scale: 1.1, transition: { duration: 0.3 } }}
+					className='text-2xl font-black tracking-widest text-white'
+				>
+					<Link href='/'>BPLR</Link>
+				</motion.button>
+
+				<div className='text-xs'>Ⓒ BIPOLAR FASHION</div>
+
+				<div className='text-4xl'>-</div>
+
+				<div className='space-x-4'>
+					<IconContext.Provider value={{ size: '30px', color: 'white' }}>
+						<button>
+							<FaInstagram />
+						</button>
+					</IconContext.Provider>
+
+					<IconContext.Provider value={{ size: '30px', color: 'white' }}>
+						<button>
+							<FaFacebook />
+						</button>
+					</IconContext.Provider>
+
+					<IconContext.Provider value={{ size: '30px', color: 'white' }}>
+						<button>
+							<FaTwitter />
+						</button>
+					</IconContext.Provider>
+				</div>
+			</div>
 		</footer>
 	)
 }
