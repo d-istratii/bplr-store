@@ -32,15 +32,15 @@ function Footer() {
 			</div>
 
 			{/* Social & Disclaimer  */}
-			<div className='flex flex-col items-center space-y-0 bg-neutral-900 text-white sm:items-start'>
+			<div className='flex flex-col items-center space-y-0 text-white sm:items-start'>
 				<motion.button
 					whileHover={{ scale: 1.1, transition: { duration: 0.3 } }}
-					className='text-2xl font-black tracking-widest text-white'
+					className='text-2xl font-black tracking-tighter text-white shadow-red-400 drop-shadow-2xl'
 				>
-					<Link href='/'>BPLR</Link>
+					<Link href='/'>1337</Link>
 				</motion.button>
 
-				<div className='text-xs'>Ⓒ BIPOLAR FASHION</div>
+				<div className='text-xs'>Ⓒ 1337 STUDIO | 2022</div>
 
 				<div className='text-4xl'>-</div>
 

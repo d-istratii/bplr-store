@@ -69,7 +69,7 @@ export default function Slider() {
 				<div className='z-0 flex h-screen w-full flex-col items-center justify-between space-y-4  bg-accessories-img bg-cover bg-center object-left p-4 text-lg text-white sm:bg-right'>
 					<div className='flex-none'></div>
 					<div className='flex flex-col items-center space-y-2'>
-						<h1 className='text-8xl sm:text-5xl'>ACCESSORIES</h1>
+						<h1 className='text-8xl sm:text-4xl'>ACCESSORIES</h1>
 						<h1 className='bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-6xl font-extrabold text-transparent sm:text-3xl'>
 							MADE TO ORDER
 						</h1>
@@ -91,8 +91,8 @@ export default function Slider() {
 				<div className='z-0 flex h-screen w-full flex-col items-center justify-between space-y-4  bg-pants-img bg-cover bg-center p-4 text-lg text-white sm:bg-right'>
 					<div className='flex-none'></div>
 					<div className='flex flex-col items-center space-y-2'>
-						<h1 className='text-8xl sm:text-5xl sm:text-neutral-900'>PANTS</h1>
-						<h1 className='text-6xl font-extrabold sm:text-3xl sm:text-neutral-900'>
+						<h1 className='text-8xl text-neutral-900 sm:text-5xl'>PANTS</h1>
+						<h1 className='text-6xl font-extrabold text-neutral-900 sm:text-3xl'>
 							MADE TO ORDER
 						</h1>
 						<Link href='/designer/t-shirts' passHref>
@@ -114,8 +114,8 @@ export default function Slider() {
 				<div className='z-0 flex h-screen w-full flex-col items-center justify-between space-y-4  bg-shoes-img bg-cover bg-center p-4 text-lg text-white'>
 					<div className='flex-none'></div>
 					<div className='flex flex-col items-center space-y-2'>
-						<h1 className='text-8xl sm:text-6xl'>SHOES</h1>
-						<h1 className='bg-gradient-to-l from-slate-200 to-neutral-400 bg-clip-text text-6xl font-extrabold text-transparent sm:text-4xl'>
+						<h1 className='text-8xl sm:text-5xl'>SHOES</h1>
+						<h1 className='bg-gradient-to-l from-slate-200 to-neutral-400 bg-clip-text text-6xl font-extrabold text-transparent sm:text-3xl'>
 							MADE TO ORDER
 						</h1>
 						<Link href='/designer/t-shirts' passHref>
