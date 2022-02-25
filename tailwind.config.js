@@ -45,6 +45,20 @@ module.exports = {
 			backgroundImage: ['hover'],
 			borderColor: ['active', 'focus', 'hover'],
 			ringColor: ['active', 'focus', 'hover'],
+			animation: {
+				'scale-up-center':
+					'scale-up-center 2s cubic-bezier(0.190, 1.000, 0.220, 1.000)  infinite  both',
+			},
+			keyframes: {
+				'scale-up-center': {
+					'0%': {
+						transform: 'scale(.5)',
+					},
+					to: {
+						transform: 'scale(1)',
+					},
+				},
+			},
 		},
 	},
 

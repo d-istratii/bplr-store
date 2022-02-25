@@ -5,7 +5,7 @@ import Footer from 'components/Footer'
 import CircleLoader from 'react-spinners/CircleLoader'
 import { useState, useEffect } from 'react'
 
-export default function Home() {
+export default function Cart() {
 	const [loading, setLoading] = useState(true)
 
 	function loadApp() {
