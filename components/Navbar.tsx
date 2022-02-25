@@ -36,13 +36,19 @@ function Navbar(props: any) {
 
 	const toggleMenuModal = () => {
 		setMenuModal(menuModal => !menuModal)
+		console.log('menu Model' + menuModal)
+		if (menuModal === true) {
+			console.log('DESCHIS')
+			setNavbarStyle(
+				'fixed inset-x-0 top-0 z-20 flex h-24 items-center justify-between bg-neutral-900 p-4'
+			)
+		} else {
+			console.log('INCHIS')
+			setNavbarStyle(
+				'fixed inset-x-0 top-0 z-10 flex h-24 items-center justify-between bg-gradient-to-b from-neutral-900 p-4'
+			)
+		}
 	}
-
-	useEffect(() => {
-		document
-			.getElementById('openMenu')!
-			.addEventListener('click', toggleMenuModal)
-	}, [])
 
 	useEffect(() => {
 		window.addEventListener('scroll', changeNavbarStyleOnScroll)
@@ -72,7 +78,7 @@ function Navbar(props: any) {
 							className='ml-1 text-white sm:p-4'
 						>
 							<IconContext.Provider value={{ color: 'white', size: '16px' }}>
-								<AiOutlineDown id='openMenu' />
+								<AiOutlineDown />
 							</IconContext.Provider>
 						</motion.button>
 					</div>
@@ -140,20 +146,20 @@ function Navbar(props: any) {
 						<motion.button
 							onClick={() => {
 								setOpen(!open)
-								setNavbarStyle(scrolledNavbarStyle)
+								setNavbarStyle(initialNavbarStyle)
 							}}
 							whileHover={{ scale: 1.2, transition: { duration: 0.3 } }}
 							animate={{ rotate: open ? 180 : 0 }}
 							className='ml-1 text-white sm:p-4'
 						>
 							<IconContext.Provider value={{ color: 'white', size: '16px' }}>
-								<AiOutlineDown id='openMenu' />
+								<AiOutlineDown />
 							</IconContext.Provider>
 						</motion.button>
 
 						<motion.ul
 							initial={{ y: 48 }}
-							animate={{ y: 64 }}
+							animate={{ y: 60 }}
 							transition={{ ease: 'easeOut', duration: 0.5 }}
 							className='
 						absolute left-0 flex w-screen 
