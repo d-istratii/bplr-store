@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-export default function whatever() {
+export default function DropDownTest() {
 	const [menuModal, setMenuModal] = useState(false)
 
 	const toggleModal = () => {
