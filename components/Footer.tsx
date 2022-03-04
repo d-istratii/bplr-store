@@ -6,7 +6,7 @@ import Link from 'next/link'
 
 function Footer() {
 	return (
-		<footer className='grid grid-cols-3 place-items-center gap-4 bg-neutral-900 p-8 sm:grid-cols-2 sm:place-items-start'>
+		<footer className='grid h-fit grid-cols-3 place-items-center gap-4 bg-neutral-900 p-8 sm:grid-cols-2 sm:place-items-start sm:p-16'>
 			{/* Shop */}
 			<div className='flex flex-col text-white'>
 				<h1 className='font-bold'>SHOP</h1>

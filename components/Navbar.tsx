@@ -4,27 +4,19 @@ import Link from 'next/link'
 import Login from './Login'
 import Modal from '@mui/material/Modal'
 import { IconContext } from 'react-icons'
-import { RiAccountCircleLine, RiHeart2Line, RiMenu3Fill } from 'react-icons/ri'
+import { RiAccountCircleLine, RiHeart2Line } from 'react-icons/ri'
 import { AiOutlineShoppingCart, AiOutlineDown } from 'react-icons/ai'
-import TestComponent from './TestComponent'
+import SearchBar from './SearchBar'
 
 function Navbar(props: any) {
 	const initialNavbarStyle: string =
 		'fixed inset-x-0 top-0 z-10 flex h-24 items-center justify-between bg-gradient-to-b from-neutral-900 p-4'
 
 	const scrolledNavbarStyle: string =
-		'fixed inset-x-0 top-0 z-20 flex h-24 items-center justify-between bg-neutral-900 p-4'
-
-	const initialSearchStyle: string =
-		'fixed inset-x-0 top-0 z-10 flex h-24 items-center justify-between bg-gradient-to-b from-neutral-900 p-4'
-
-	const focusSearchStyle: string =
-		'fixed inset-x-0 top-0 z-20 flex h-24 items-center justify-between bg-neutral-900 p-4'
+		'fixed inset-x-0 top-0 z-20 flex h-24 items-center justify-between bg-neutral-900 p-4 shadow-lg'
 
 	const [navbarStyle, setNavbarStyle] = useState(initialNavbarStyle)
 	const [dropdownMenu, setDropdownMenu] = useState(false)
-	const [hamburgerMenu, setHamburgerMenu] = useState(false)
-	const [searchModal, setSearchModal] = useState(false)
 	const [loginModal, setLoginModal] = useState(false)
 
 	const changeNavbarStyleOnScroll = () => {
@@ -33,16 +25,8 @@ function Navbar(props: any) {
 			: setNavbarStyle(scrolledNavbarStyle)
 	}
 
-	const toggleSearchModal = () => {
-		setSearchModal(searchModal => !searchModal)
-	}
-
 	const toggleLoginModal = () => {
 		setLoginModal(loginModal => !loginModal)
-	}
-
-	const toggleHamburgerMenu = () => {
-		setHamburgerMenu(hamburgerMenu => !hamburgerMenu)
 	}
 
 	const changeNavbarStyleOnClick = () => {
@@ -117,8 +101,6 @@ function Navbar(props: any) {
 						<motion.button whileHover={{ scale: 1.05 }}>
 							<Link href='/designer/shoes'>SHOES</Link>
 						</motion.button>
-
-						<TestComponent />
 					</motion.ul>
 				) : null}
 			</div>
@@ -131,8 +113,10 @@ function Navbar(props: any) {
 			</motion.button>
 
 			{/* Right section icons */}
-			<div className='flex space-x-4 text-white '>
-				<button>
+			<div className='flex space-x-2 text-white'>
+				<SearchBar />
+
+				<button className='p-2 hover:rounded-xl hover:bg-neutral-800'>
 					<Modal
 						className='font-Sora'
 						open={loginModal}
@@ -145,16 +129,16 @@ function Navbar(props: any) {
 					</IconContext.Provider>
 				</button>
 
-				<button>
+				<button className='p-2 hover:rounded-xl hover:bg-neutral-800'>
 					<IconContext.Provider value={{ size: '24px' }}>
 						<RiHeart2Line />
 					</IconContext.Provider>
 				</button>
 
-				<button>
+				<button className='p-2 hover:rounded-xl hover:bg-neutral-800'>
 					<IconContext.Provider value={{ size: '24px' }}>
 						<Link href='/cart' passHref>
-							<div className='pr-4 '>
+							<div>
 								<AiOutlineShoppingCart />
 								<div className='absolute bottom-12 right-2 h-5 w-8 rounded-full border border-neutral-900 bg-neutral-100 font-semibold text-neutral-900'>
 									<p className='text-xs text-neutral-700'>99+</p>

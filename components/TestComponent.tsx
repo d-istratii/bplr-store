@@ -1,43 +1,21 @@
-import { useState } from 'react'
-import { IconContext } from 'react-icons'
-import { AiOutlineSearch } from 'react-icons/ai'
-import { motion } from 'framer-motion'
-
 export default function TestComponent() {
-	const [searchBar, setSearchBar] = useState(false)
-
-	function toggleSearchBar() {
-		setSearchBar(searchBar => !searchBar)
-	}
-
 	return (
-		<div>
-			{!searchBar ? (
-				<button
-					className='visible flex flex-row rounded-xl bg-neutral-700 p-2 text-white'
-					onClick={toggleSearchBar}
-				>
-					<IconContext.Provider value={{ size: '24px' }}>
-						<AiOutlineSearch />
-					</IconContext.Provider>
-				</button>
-			) : (
-				<div className='flex w-96 justify-between rounded-xl bg-neutral-700 p-2 shadow-xl sm:w-max'>
-					<input
-						type='text'
-						placeholder='Quick search...'
-						className='bg-neutral-700 px-2 text-white placeholder-neutral-400  outline-none'
-					/>
-					<button
-						className='flex flex-row rounded-xl  text-white'
-						onClick={toggleSearchBar}
-					>
-						<IconContext.Provider value={{ size: '24px' }}>
-							<AiOutlineSearch />
-						</IconContext.Provider>
-					</button>
-				</div>
-			)}
+		<div className='grid h-screen grid-rows-2 gap-4 bg-neutral-900 p-8 md:grid-cols-2 md:grid-rows-none'>
+			<div className='relative flex flex-col items-center justify-center bg-neutral-800'>
+				<div className='bg- bg-heropattern absolute left-1/2 h-1/2 w-1/4 bg-neutral-700'></div>
+				<div className='absolute top-1/3 ml-8 h-1/2 w-1/4 bg-neutral-600'></div>
+				<div className='absolute left-1/4 top-1/4  h-1/2 w-1/4 bg-neutral-500'></div>
+				<div className='absolute bottom-1/3 mr-8 h-1/2 w-1/4 bg-neutral-400'></div>
+			</div>
+
+			<div className='flex flex-col items-center justify-center bg-neutral-800'>
+				<h1 className='p-8 text-white'>
+					Lorem ipsum dolor sit, amet consectetur adipisicing elit. Delectus et
+					deserunt, fugiat ipsa repellendus odit. Ipsa explicabo eum iusto
+					perspiciatis quis maiores optio omnis eveniet. Quia, quas ipsam. Numquam,
+					rerum.
+				</h1>
+			</div>
 		</div>
 	)
 }
