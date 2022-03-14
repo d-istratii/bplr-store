@@ -1,21 +1,43 @@
-export default function TestComponent() {
-	return (
-		<div className='grid h-screen grid-rows-2 gap-4 bg-neutral-900 p-8 md:grid-cols-2 md:grid-rows-none'>
-			<div className='relative flex flex-col items-center justify-center bg-neutral-800'>
-				<div className='bg- bg-heropattern absolute left-1/2 h-1/2 w-1/4 bg-neutral-700'></div>
-				<div className='absolute top-1/3 ml-8 h-1/2 w-1/4 bg-neutral-600'></div>
-				<div className='absolute left-1/4 top-1/4  h-1/2 w-1/4 bg-neutral-500'></div>
-				<div className='absolute bottom-1/3 mr-8 h-1/2 w-1/4 bg-neutral-400'></div>
-			</div>
+import { IconContext } from 'react-icons'
+import { AiOutlineSearch } from 'react-icons/ai'
+import { useState } from 'react'
 
-			<div className='flex flex-col items-center justify-center bg-neutral-800'>
-				<h1 className='p-8 text-white'>
-					Lorem ipsum dolor sit, amet consectetur adipisicing elit. Delectus et
-					deserunt, fugiat ipsa repellendus odit. Ipsa explicabo eum iusto
-					perspiciatis quis maiores optio omnis eveniet. Quia, quas ipsam. Numquam,
-					rerum.
-				</h1>
-			</div>
+export default function TestComponent() {
+	const [searchBar, setSearchBar] = useState(false)
+	const openSearchBar = () => {
+		setSearchBar(true)
+	}
+	const closeSearchBar = () => {
+		setSearchBar(false)
+	}
+
+	return (
+		<div>
+			<button
+				className='relative z-10 flex h-12 w-12 flex-row items-center justify-between rounded-2xl bg-neutral-800 shadow-xl duration-300 ease-in-out  focus-within:w-1/4 sm:w-max'
+				onClick={openSearchBar}
+			>
+				{searchBar ? (
+					<input
+						type='text'
+						placeholder='Quick search...'
+						className='ml-4 bg-transparent text-white placeholder-neutral-400 outline-none'
+					></input>
+				) : null}
+
+				<div className='p-3 text-white'>
+					<IconContext.Provider value={{ size: '24px' }}>
+						<AiOutlineSearch />
+					</IconContext.Provider>
+				</div>
+			</button>
+
+			{searchBar ? (
+				<div
+					className='absolute inset-0 z-0 bg-neutral-700 opacity-75'
+					onClick={closeSearchBar}
+				></div>
+			) : null}
 		</div>
 	)
 }

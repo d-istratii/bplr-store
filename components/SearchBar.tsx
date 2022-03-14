@@ -1,42 +1,43 @@
-import { useState } from 'react'
 import { IconContext } from 'react-icons'
 import { AiOutlineSearch } from 'react-icons/ai'
+import { useEffect, useState } from 'react'
 
 export default function SearchBar() {
 	const [searchBar, setSearchBar] = useState(false)
-
-	function toggleSearchBar() {
-		setSearchBar(searchBar => !searchBar)
+	const openSearchBar = () => {
+		setSearchBar(true)
+	}
+	const closeSearchBar = () => {
+		setSearchBar(false)
 	}
 
 	return (
 		<div>
-			{!searchBar ? (
-				<button
-					className='visible flex flex-row rounded-xl bg-neutral-800 p-2 text-white'
-					onClick={toggleSearchBar}
-				>
-					<IconContext.Provider value={{ size: '24px' }}>
-						<AiOutlineSearch />
-					</IconContext.Provider>
-				</button>
-			) : (
-				<div className='flex w-96 justify-between rounded-xl bg-neutral-800 p-2 shadow-xl sm:w-max'>
+			<button
+				className='relative z-10 flex h-12 w-12 flex-row items-center justify-start rounded-2xl bg-neutral-800 shadow-lg duration-500 ease-in-out  focus-within:w-96 focus:transition-all sm:w-max'
+				onClick={openSearchBar}
+			>
+				{searchBar ? (
 					<input
 						type='text'
 						placeholder='Quick search...'
-						className='bg-neutral-800 px-2 text-white placeholder-neutral-400  outline-none'
-					/>
-					<button
-						className='flex flex-row rounded-xl  text-white'
-						onClick={toggleSearchBar}
-					>
-						<IconContext.Provider value={{ size: '24px' }}>
-							<AiOutlineSearch />
-						</IconContext.Provider>
-					</button>
+						className='order-2 bg-transparent text-white placeholder-neutral-400 outline-none'
+					></input>
+				) : null}
+
+				<div className='p-3 text-white'>
+					<IconContext.Provider value={{ size: '24px' }}>
+						<AiOutlineSearch />
+					</IconContext.Provider>
 				</div>
-			)}
+			</button>
+
+			{searchBar ? (
+				<div
+					className='absolute inset-0 z-0 h-screen bg-neutral-900 opacity-50'
+					onClick={closeSearchBar}
+				></div>
+			) : null}
 		</div>
 	)
 }

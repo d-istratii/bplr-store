@@ -74,7 +74,7 @@ function LoginExistingUser(props: any) {
 			</div>
 
 			<form autoComplete='off' onSubmit={handleSubmit}>
-				<div className='flex flex-col'>
+				<div className='mt-4'>
 					<label className='mt-2 text-lg'>E-mail address</label>
 					<input
 						className={emailStyle}
@@ -86,22 +86,30 @@ function LoginExistingUser(props: any) {
 					/>
 				</div>
 
-				<label className='mt-2 text-lg'>Password</label>
-				<input
-					className={passwordStyle}
-					type='password'
-					placeholder='********'
-					onChange={e => {
-						setPasswordInput(e.target.value)
-					}}
-				/>
+				<div className='mt-4'>
+					<label className='mt-2 text-lg'>Password</label>
+					<input
+						className={passwordStyle}
+						type='password'
+						placeholder='********'
+						onChange={e => {
+							setPasswordInput(e.target.value)
+						}}
+					/>
+				</div>
 
-				<div className='flex'>
-					<input type='checkbox' className='mt-1 mr-1 accent-black'></input>
+				<div className='text-md mt-2 flex'>
+					<input
+						type='checkbox'
+						className='mr-1 accent-black'
+						defaultChecked={true}
+					></input>
 					<div>Keep me signed in.</div>
 				</div>
 
-				<Link href='/forgot'>Forgot your password?</Link>
+				<div className='mb-2 font-bold'>
+					<Link href='/forgot'>Forgot your password?</Link>
+				</div>
 
 				<div className='flex flex-row justify-center'>
 					<button className='w-96 rounded-xl bg-gray-800 py-2 font-semibold text-white'>
@@ -118,24 +126,6 @@ function LoginExistingUser(props: any) {
 						<FcGoogle className='ml-4' />
 					</IconContext.Provider>
 					<div className='col-span-3 font-bold'>Continue with Google</div>
-				</button>
-			</div>
-
-			<div className='flex flex-row justify-center'>
-				<button className='grid w-96 grid-cols-5 rounded border border-black py-2'>
-					<IconContext.Provider value={{ size: '24px' }}>
-						<FaApple className='ml-4' />
-					</IconContext.Provider>
-					<div className='col-span-3 font-bold'>Continue with Apple</div>
-				</button>
-			</div>
-
-			<div className='flex flex-row justify-center '>
-				<button className='grid w-96 grid-cols-5 rounded border border-black py-2'>
-					<IconContext.Provider value={{ color: '#3b5998', size: '24px' }}>
-						<MdFacebook className='ml-4' />
-					</IconContext.Provider>
-					<div className='col-span-3 font-bold'>Continue with Facebook</div>
 				</button>
 			</div>
 

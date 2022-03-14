@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import LoginExistingUser from './LoginExistingUser'
 import LoginNewUser from './LoginNewUser'
+import { motion } from 'framer-motion'
 
 function Login(props: any) {
 	const [newUser, setNewUser] = useState(false)
@@ -8,17 +9,21 @@ function Login(props: any) {
 	return (
 		<div>
 			{props.loginModal ? (
-				<div className='absolute left-1/2 -translate-x-1/2'>
+				<div className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2'>
 					{!newUser ? (
-						<LoginExistingUser
-							setLoginModal={props.setLoginModal}
-							setNewUser={setNewUser}
-						/>
+						<motion.div>
+							<LoginExistingUser
+								setLoginModal={props.setLoginModal}
+								setNewUser={setNewUser}
+							/>
+						</motion.div>
 					) : (
-						<LoginNewUser
-							setLoginModal={props.setLoginModal}
-							setNewUser={setNewUser}
-						/>
+						<motion.div>
+							<LoginNewUser
+								setLoginModal={props.setLoginModal}
+								setNewUser={setNewUser}
+							/>
+						</motion.div>
 					)}
 				</div>
 			) : null}
