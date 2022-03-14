@@ -97,24 +97,6 @@ export default function LoginNewUser(props: any) {
 					<div className='col-span-3 font-bold'>Continue with Google</div>
 				</button>
 			</div>
-
-			<div className='flex flex-row justify-center'>
-				<button className='grid w-96 grid-cols-5 rounded border border-black py-2'>
-					<IconContext.Provider value={{ size: '24px' }}>
-						<FaApple className='ml-4' />
-					</IconContext.Provider>
-					<div className='col-span-3 font-bold'>Continue with Apple</div>
-				</button>
-			</div>
-
-			<div className='flex flex-row justify-center '>
-				<button className='grid w-96 grid-cols-5 rounded border border-black py-2'>
-					<IconContext.Provider value={{ color: '#3b5998', size: '24px' }}>
-						<MdFacebook className='ml-4' />
-					</IconContext.Provider>
-					<div className='col-span-3 font-bold'>Continue with Facebook</div>
-				</button>
-			</div>
 		</div>
 	)
 }

@@ -74,13 +74,13 @@ function Navbar(props: any) {
 					<motion.ul
 						initial={{ y: 48 }}
 						animate={{ y: 64 }}
-						transition={{ ease: 'easeIn', duration: 0.25 }}
+						transition={{ ease: 'easeInOut', duration: 0.3 }}
 						className='
 						absolute left-0 flex w-screen 
 						flex-col items-start justify-center 
 						space-y-4  border-t border-neutral-800
 						bg-gradient-to-b from-neutral-900 to-neutral-800 
-						py-4 px-10 text-white sm:px-8'
+						py-4 px-10 text-white shadow-xl sm:px-8'
 					>
 						<motion.button whileHover={{ scale: 1.05 }}>
 							<Link href='/designer/tshirts'>T-SHIRTS - SHORT SLEEVES</Link>
@@ -116,7 +116,7 @@ function Navbar(props: any) {
 			<div className='flex space-x-2 text-white'>
 				<SearchBar />
 
-				<button className='p-2 hover:rounded-xl hover:bg-neutral-800'>
+				<button className='p-3 hover:rounded-xl hover:bg-neutral-800 hover:shadow-lg'>
 					<Modal
 						className='font-Sora'
 						open={loginModal}
@@ -129,13 +129,13 @@ function Navbar(props: any) {
 					</IconContext.Provider>
 				</button>
 
-				<button className='p-2 hover:rounded-xl hover:bg-neutral-800'>
+				<button className='p-3 hover:rounded-xl hover:bg-neutral-800 hover:shadow-lg'>
 					<IconContext.Provider value={{ size: '24px' }}>
 						<RiHeart2Line />
 					</IconContext.Provider>
 				</button>
 
-				<button className='p-2 hover:rounded-xl hover:bg-neutral-800'>
+				<button className='p-3 hover:rounded-xl hover:bg-neutral-800 hover:shadow-lg'>
 					<IconContext.Provider value={{ size: '24px' }}>
 						<Link href='/cart' passHref>
 							<div>
