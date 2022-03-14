@@ -1,6 +1,5 @@
- # Technologies used
- - ## Frontend: 
- ### TailwindCSS, TypeScript, NextJS, Framer Motion 
+ # Technologies used:
+ - ## Frontend: ### TailwindCSS, TypeScript, NextJS, Framer Motion 
  - ## Backend: 
  ### ExpressJS, NextAuthJS
  - ## DevOps: 
