@@ -1,6 +1,16 @@
- ## Tech stack:
+ # Tech stack:
  ## Frontend: 
  - ### TailwindCSS 
- - ### TypeScript, NextJS, Framer Motion 
- - ### Backend: Express, NextAuth, Prisma, PostgreSQL
- - ### DevOps: Jest (Unit & Integration Testing), Cypress (E2E Testing), GitHub Actions (CI/CD), AWS
+ - ### TypeScript 
+ - ### Next.js
+ - ### Framer Motion 
+ ## Backend: 
+ - ### Express.js
+ - ### NextAuth.js
+ - ### Prisma
+ - ### PostgreSQL
+ ## DevOps: 
+ - ### Jest (Unit & Integration Testing)
+ - ### Cypress (E2E Testing)
+ - ### GitHub Actions (CI/CD)
+ - ### AWS
