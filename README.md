@@ -1,4 +1,4 @@
  ## Technologies used:
  - ### Frontend: - TailwindCSS, TypeScript, NextJS, Framer Motion 
  - ### Backend: ExpressJS, NextAuthJS
- - ### DevOps: Docker, JestJS (Unit & Integration Testing), Cypress (E2E Testing), GitHub Actions (CI/CD), AWS
+ - ### DevOps: Docker, Jest (Unit & Integration Testing), Cypress (E2E Testing), GitHub Actions (CI/CD), AWS
