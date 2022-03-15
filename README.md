@@ -14,4 +14,4 @@
  - ### Cypress (E2E Testing)
  - ### GitHub Actions (CI/CD)
  - ### AWS
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
+![alt text](https://tailwindcss.com/_next/static/media/tailwindcss-logotype-white.e0b2bd6155fa0bed8e24ff6b28f4a911.svg "TailwindCSS")
