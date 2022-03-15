@@ -1,6 +1,6 @@
  # Tech stack:
  ## Frontend: 
- - ### TailwindCSS 
+ - ### TailwindCSS ![alt text](https://tailwindcss.com/_next/static/media/tailwindcss-logotype-white.e0b2bd6155fa0bed8e24ff6b28f4a911.svg "TailwindCSS")
  - ### TypeScript 
  - ### Next.js
  - ### Framer Motion 
@@ -14,4 +14,4 @@
  - ### Cypress (E2E Testing)
  - ### GitHub Actions (CI/CD)
  - ### AWS
-![alt text](https://tailwindcss.com/_next/static/media/tailwindcss-logotype-white.e0b2bd6155fa0bed8e24ff6b28f4a911.svg "TailwindCSS")
+
