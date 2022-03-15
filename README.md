@@ -1,6 +1,6 @@
  # Tech stack:
  ## Frontend: 
- - ### TailwindCSS ![alt text](https://tailwindcss.com/_next/static/media/tailwindcss-logotype-white.e0b2bd6155fa0bed8e24ff6b28f4a911.svg "TailwindCSS")
+ - ### TailwindCSS ![alt text](https://tailwindcss.com/_next/static/media/tailwindcss-mark.79614a5f61617ba49a0891494521226b.svg "TailwindCSS")
  - ### TypeScript 
  - ### Next.js
  - ### Framer Motion 
