@@ -9,6 +9,7 @@
  - ### NextAuth.js
  - ### Prisma
  - ### PostgreSQL
+ - ### Twilio SendGrid
  ## DevOps: 
  - ### Jest (Unit & Integration Testing)
  - ### Cypress (E2E Testing)
