@@ -4,12 +4,13 @@
  
  # Technologies used:
  ## Frontend: 
- - ### Next.js 
  - ### React TypeScript 
+ - ### Next.js (server-side rendering, SSR)
  - ### TailwindCSS (design & layout)
+ - ### Material-UI (components)
  - ### Framer Motion (animations)
  ## Backend: 
- - ### FastAPI
+ - ### FastAPI (RESTful API)
  - ### NextAuth.js (authentication)
  - ### Twilio SendGrid (email verification)
  ## Database:
@@ -19,5 +20,4 @@
  - ### Jest (Unit & Integration Testing)
  - ### Cypress (E2E Testing)
  - ### GitHub Actions (CI/CD)
- - ### AWS
-
+ - ### AWS (cloud infrastructure)
