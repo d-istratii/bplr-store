@@ -1,6 +1,8 @@
- # Tech stack:
+ # This project reflects a prototype of a performant, scalable and modern fashion eCommerce website, more specifically the 1337 Fashion Brand, with products ranging from t-shirts, pants, shoes, etc. The website uses the Amazon Web Services infrastracture, where the Users and Products databases are stored, for reduced costs and reliability concerns.
+ 
+ # Technologies used:
  ## Frontend: 
- - ### TailwindCSS ![alt text](https://tailwindcss.com/_next/static/media/tailwindcss-mark.79614a5f61617ba49a0891494521226b.svg "TailwindCSS")
+ - ### TailwindCSS
  - ### TypeScript 
  - ### Next.js
  - ### Framer Motion 
