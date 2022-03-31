@@ -1,6 +1,6 @@
 import { IconContext } from 'react-icons'
 import { AiOutlineSearch } from 'react-icons/ai'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 export default function SearchBar() {
 	const [searchBar, setSearchBar] = useState(false)
@@ -35,7 +35,7 @@ export default function SearchBar() {
 
 			{searchBar ? (
 				<div
-					className='absolute inset-0 z-0 h-screen bg-neutral-900 opacity-60'
+					className='absolute inset-0 z-0 h-screen bg-black opacity-50'
 					onClick={closeSearchBar}
 				></div>
 			) : null}

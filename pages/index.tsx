@@ -4,6 +4,7 @@ import Contact from 'components/Contact'
 import Newsletter from 'components/Newsletter'
 import Steps from 'components/Steps'
 import Footer from 'components/Footer'
+import Cookies from 'components/Cookies'
 
 export default function Home() {
 	return (
@@ -14,6 +15,7 @@ export default function Home() {
 			<Newsletter />
 			<Steps />
 			<Footer />
+			<Cookies />
 		</div>
 	)
 }
