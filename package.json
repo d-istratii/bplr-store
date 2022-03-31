@@ -19,6 +19,7 @@
     "express": "^4.17.3",
     "framer-motion": "^6.2.3",
     "jsonwebtoken": "^8.5.1",
+    "minimist": "^1.2.6",
     "next": "12",
     "next-auth": "^4.2.1",
     "prisma": "^3.10.0",
