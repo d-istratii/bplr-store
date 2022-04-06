@@ -49,7 +49,7 @@ function Navbar(props: any) {
 			<div className='flex flex-row'>
 				<motion.button
 					whileHover={{ scale: 1.1, transition: { duration: 0.3 } }}
-					className='pl-8 text-2xl font-black tracking-tighter text-white sm:hidden'
+					className='pl-8 text-3xl font-black tracking-tighter text-white sm:hidden'
 				>
 					<Link href='/'>1337</Link>
 				</motion.button>

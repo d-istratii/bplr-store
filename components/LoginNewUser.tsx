@@ -5,29 +5,33 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 
 export default function LoginNewUser(props: any) {
+	const initialInputStyle =
+		'border-0 border-gray-400 py-2 px-7 rounded w-full text-white outline-0 bg-neutral-700 focus:outline-0 focus:outline'
+	const invalidInputStyle =
+		'border border-red-400 py-2 px-7 rounded w-full text-white outline-0 bg-red-700/10 focus:outline-0 focus:outline'
+	const validInputStyle =
+		'border-2 border-google-green py-2 px-7 rounded w-full text-white outline-0 bg-google-green/10 focus:outline-0 focus:outline'
+
 	const [nameInput, setNameInput] = useState('')
-	const [nameStyle, setNameStyle] = useState(
-		'border border-gray-400 py-2 px-7 rounded w-full text-black'
-	)
 	const [nameError, setNameError] = useState('')
+	const [nameStyle, setNameStyle] = useState(initialInputStyle)
 
 	const [emailInput, setEmailInput] = useState('')
-	const [emailStyle, setEmailStyle] = useState(
-		'border border-gray-400 py-2 px-7 rounded w-full text-black'
-	)
 	const [emailError, setEmailError] = useState('')
+	const [emailStyle, setEmailStyle] = useState(initialInputStyle)
 
 	const [passwordInput, setPasswordInput] = useState('')
-	const [passwordStyle, setPasswordStyle] = useState(
-		'border border-gray-400 py-2 px-7 rounded w-full text-black'
-	)
 	const [passwordError, setPasswordError] = useState('')
+	const [passwordStyle, setPasswordStyle] = useState(initialInputStyle)
 
-	function validateName(name: string) {
-		if (name.length == 0) {
+	const [formState, setFormState] = useState(0)
+	const [formVisibility, setFormVisibility] = useState('')
+
+	function validateName() {
+		if (nameInput.length == 0) {
 			setNameError('Name empty.')
 			return false
-		} else if (name.length > 50) {
+		} else if (nameInput.length > 50) {
 			setNameError('Name too long.')
 			return false
 		} else {
@@ -36,18 +40,17 @@ export default function LoginNewUser(props: any) {
 		}
 	}
 
-	function handleName() {
-		if (!validateName(nameInput)) {
-			setNameStyle('border-2 border-red-400 py-2 px-7 rounded w-full text-black')
+	function validateNameBlur() {
+		if (nameInput.length == 0) {
+			setNameError('')
+			setNameStyle(initialInputStyle)
+		} else if (nameInput.length > 50) {
+			setNameError('Name too long.')
+			setNameStyle(invalidInputStyle)
 		} else {
-			setNameStyle('border border-gray-400 py-2 px-7 rounded w-full text-black')
+			setNameError('')
+			setNameStyle(validInputStyle)
 		}
-	}
-
-	function checkNameInput(e: React.SetStateAction<string>) {
-		setNameInput(e)
-		console.log(nameInput)
-		handleName()
 	}
 
 	function isLengthy(password: string) {
@@ -55,7 +58,7 @@ export default function LoginNewUser(props: any) {
 			setPasswordError('')
 			return true
 		} else {
-			setPasswordError('Password is too short.')
+			setPasswordError('Too short.')
 			return false
 		}
 	}
@@ -66,7 +69,7 @@ export default function LoginNewUser(props: any) {
 			setPasswordError('')
 			return true
 		} else {
-			setPasswordError("Password doesn't contain a upper case letter.")
+			setPasswordError('Missing upper-case character.')
 			return false
 		}
 	}
@@ -77,7 +80,7 @@ export default function LoginNewUser(props: any) {
 			setPasswordError('')
 			return true
 		} else {
-			setPasswordError("Password doesn't contain a lower case letter.")
+			setPasswordError('Missing lower-case character.')
 			return false
 		}
 	}
@@ -88,39 +91,48 @@ export default function LoginNewUser(props: any) {
 			setPasswordError('')
 			return true
 		} else {
-			setPasswordError("Password doesn't contain a special character.")
+			setPasswordError('Missing special character.')
 			return false
 		}
 	}
 
-	function validatePassword(password: string) {
-		return (
-			isLengthy(password) &&
-			isUpperCase(password) &&
-			isLowerCase(password) &&
-			isSpecialCase(password)
-		)
+	function isEmpty(password: string) {
+		return password.length == 0
+	}
+	function validatePassword() {
+		if (
+			isLengthy(passwordInput) &&
+			isUpperCase(passwordInput) &&
+			isLowerCase(passwordInput) &&
+			isSpecialCase(passwordInput)
+		) {
+			setPasswordError('')
+			setPasswordStyle(validInputStyle)
+			return true
+		} else {
+			setPasswordStyle(invalidInputStyle)
+			return false
+		}
 	}
 
-	function handlePassword() {
-		if (!validatePassword(passwordInput)) {
-			setPasswordStyle(
-				'border-2 border-red-400 py-2 px-7 rounded w-full text-black'
-			)
-		} else
-			setPasswordStyle(
-				'border border-gray-400 py-2 px-7 rounded w-full text-black'
-			)
+	function validatePasswordBlur() {
+		if (isEmpty(passwordInput)) {
+			setPasswordError('')
+			setPasswordStyle(initialInputStyle)
+		} else if (
+			isLengthy(passwordInput) &&
+			isUpperCase(passwordInput) &&
+			isLowerCase(passwordInput) &&
+			isSpecialCase(passwordInput)
+		) {
+			setPasswordError('')
+			setPasswordStyle(validInputStyle)
+		} else setPasswordStyle(invalidInputStyle)
 	}
 
-	function checkPasswordInput(e: React.SetStateAction<string>) {
-		setPasswordInput(e)
-		handlePassword()
-	}
-
-	function validateEmail(email: string) {
+	function validateEmail() {
 		var regex = /\S+@\S+\.\S+/
-		if (regex.test(email)) {
+		if (regex.test(emailInput)) {
 			setEmailError('')
 			return true
 		} else {
@@ -129,44 +141,52 @@ export default function LoginNewUser(props: any) {
 		}
 	}
 
-	function handleEmail() {
-		if (!validateEmail(emailInput)) {
-			setEmailStyle('border-2 border-red-400 py-2 px-7 rounded w-full text-black')
-		} else
-			setEmailStyle('border border-gray-400 py-2 px-7 rounded w-full text-black')
-	}
-
-	function checkEmailInput(e: React.SetStateAction<string>) {
-		setEmailInput(e)
-		handleEmail()
+	function validateEmailBlur() {
+		if (emailInput.length === 0) {
+			setEmailError('')
+			setEmailStyle(initialInputStyle)
+			return true
+		}
+		var regex = /\S+@\S+\.\S+/
+		if (regex.test(emailInput)) {
+			setEmailError('')
+			setEmailStyle(validInputStyle)
+			return true
+		} else {
+			setEmailError('Invalid email')
+			setEmailStyle(invalidInputStyle)
+			return false
+		}
 	}
 
 	function requestStatus() {
-		if (
-			validatePassword(passwordInput) &&
-			validateEmail(emailInput) &&
-			validateName(nameInput)
-		) {
-			console.log('SUCCESFUL AUTHENTICAITON')
-		} else console.log('FAIL')
+		if (validateEmail() && validatePassword()) {
+			setFormState(-1000),
+				setTimeout(() => setFormVisibility('hidden'), 500),
+				setTimeout(() => props.setLoginModal(false), 500)
+		}
 	}
 
 	const handleSubmit = (e: React.FormEvent<EventTarget>) => {
 		e.preventDefault()
-		handleName()
-		handleEmail()
-		handlePassword()
+		validateName()
+		validateEmail()
+		validatePassword()
 		requestStatus()
 	}
 
 	return (
-		<motion.div animate={{ x: 0 }} initial={{ x: 100 }}>
+		<motion.div
+			animate={{ x: 0, y: formState }}
+			initial={{ x: 100, y: 0 }}
+			className={formVisibility}
+		>
 			<div className='w-min space-y-2 rounded-lg bg-neutral-800 p-8 text-white sm:h-fit sm:w-screen'>
 				<div className='mb-8 flex flex-row justify-between'>
 					<h1 className='text-2xl '>Come on in</h1>
 
 					<motion.button
-						className='rounded-md px-2 text-2xl hover:bg-neutral-700'
+						className='rounded-md px-2 text-2xl hover:bg-neutral-700 active:bg-neutral-600'
 						onClick={() => props.setLoginModal(false)}
 						whileHover={{ scale: 1.33 }}
 					>
@@ -191,35 +211,39 @@ export default function LoginNewUser(props: any) {
 				</div>
 
 				<form autoComplete='off' onSubmit={handleSubmit}>
-					<div className='mt-4'>
-						<label className='mt-2 text-lg'>Name</label>
+					{/* <form onSubmit={handleSubmit}> */}
+					<div className='mt-3'>
+						<label className='text-lg'>Name</label>
 						<input
 							className={nameStyle}
 							type='text'
 							placeholder='Jane Smith'
-							onChange={e => checkNameInput(e.target.value)}
+							onChange={e => setNameInput(e.target.value)}
+							onBlur={validateNameBlur}
 						/>
 						<p className='mt-1 text-red-500'>{nameError}</p>
 					</div>
 
-					<div className='mt-4'>
-						<label className='mt-2 text-lg'>E-mail address</label>
+					<div className='mt-3'>
+						<label className='text-lg'>E-mail address</label>
 						<input
 							className={emailStyle}
-							type='text'
+							type='email'
 							placeholder='jane.smith@example.com'
-							onChange={e => checkEmailInput(e.target.value)}
+							onChange={e => setEmailInput(e.target.value)}
+							onBlur={validateEmailBlur}
 						/>
 						<p className='mt-1 text-red-500'>{emailError}</p>
 					</div>
 
-					<div className='mt-4'>
-						<label className='mt-2 text-lg'>Password</label>
+					<div className='mt-3'>
+						<label className='text-lg'>Password</label>
 						<input
 							className={passwordStyle}
 							type='password'
 							placeholder='********'
-							onChange={e => checkPasswordInput(e.target.value)}
+							onChange={e => setPasswordInput(e.target.value)}
+							onBlur={validatePasswordBlur}
 						/>
 						<p className='mt-1 text-red-500'>{passwordError}</p>
 					</div>

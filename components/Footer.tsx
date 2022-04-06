@@ -45,19 +45,19 @@ function Footer() {
 				<div className='text-4xl'>-</div>
 
 				<div className='space-x-4'>
-					<IconContext.Provider value={{ size: '30px', color: 'white' }}>
+					<IconContext.Provider value={{ size: '24px', color: 'white' }}>
 						<button>
 							<FaInstagram />
 						</button>
 					</IconContext.Provider>
 
-					<IconContext.Provider value={{ size: '30px', color: 'white' }}>
+					<IconContext.Provider value={{ size: '24px', color: 'white' }}>
 						<button>
 							<FaFacebook />
 						</button>
 					</IconContext.Provider>
 
-					<IconContext.Provider value={{ size: '30px', color: 'white' }}>
+					<IconContext.Provider value={{ size: '24px', color: 'white' }}>
 						<button>
 							<FaTwitter />
 						</button>

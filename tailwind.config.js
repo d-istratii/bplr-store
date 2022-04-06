@@ -3,6 +3,9 @@ module.exports = {
 	darkMode: 'media', // or 'media' or 'class'
 	theme: {
 		extend: {
+			colors: {
+				'google-green': '#34a853',
+			},
 			fontFamily: {
 				Sora: ['Sora'],
 			},

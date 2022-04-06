@@ -11,16 +11,16 @@ export default function Newsletter() {
 						Subscribe to receive updates, access to exclusive deals, and more.
 					</div>
 
-					<div className='flex flex-row rounded-xl bg-neutral-600 p-3 shadow-xl sm:w-72 sm:flex-col sm:items-center sm:justify-center sm:space-y-4 sm:p-4'>
+					<div className='flex flex-row rounded-xl bg-neutral-600 p-3 shadow-xl autofill:bg-yellow-200 sm:w-72 sm:items-center sm:justify-center sm:p-4'>
 						<input
-							type='text'
+							type='email'
 							placeholder='Your email'
-							className='bg-neutral-600 px-4 text-white placeholder-white outline-none  sm:w-48'
+							className='rounded bg-neutral-600 px-4 text-white placeholder-white outline-none sm:w-36'
 						/>
 
 						<button
 							type='button'
-							className='rounded-xl border border-neutral-300 bg-neutral-700 py-2.5 px-5 text-sm font-bold text-neutral-300 shadow-lg hover:bg-neutral-300 hover:text-neutral-700 focus:z-10 focus:bg-neutral-900 focus:hover:text-white sm:px-4'
+							className='rounded-xl border border-neutral-300 bg-neutral-700 py-2 px-4 text-sm font-bold text-neutral-300 shadow-lg hover:bg-neutral-300 hover:text-neutral-700 focus:z-10 focus:bg-neutral-900 focus:hover:text-white sm:px-4'
 						>
 							Subscribe
 						</button>
