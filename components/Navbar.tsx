@@ -7,6 +7,7 @@ import { IconContext } from 'react-icons'
 import { RiAccountCircleLine, RiHeart2Line } from 'react-icons/ri'
 import { AiOutlineShoppingCart, AiOutlineDown } from 'react-icons/ai'
 import SearchBar from './SearchBar'
+import SearchBarList from './SearchBarList'
 
 function Navbar(props: any) {
 	const initialNavbarStyle: string =
@@ -54,7 +55,7 @@ function Navbar(props: any) {
 					<Link href='/'>1337</Link>
 				</motion.button>
 
-				<div className='pl-12 text-lg text-white sm:hidden '>SHOP</div>
+				<div className='pt-1 pl-12 text-lg text-white sm:hidden '>SHOP</div>
 
 				<motion.button
 					onClick={() => {
@@ -76,12 +77,14 @@ function Navbar(props: any) {
 						animate={{ y: 64 }}
 						transition={{ ease: 'easeInOut', duration: 0.3 }}
 						className='
-						absolute left-0 flex w-screen 
-						flex-col items-start justify-center 
-						space-y-4  border-t border-neutral-800
-						bg-gradient-to-b from-neutral-900 to-neutral-800 
-						py-4 px-10 text-white shadow-xl sm:px-8'
+						absolute left-0 flex 
+						w-screen flex-col items-start 
+						justify-center  space-y-4 border-t
+						border-neutral-800 bg-gradient-to-b from-neutral-900 
+						to-neutral-800 py-4 px-10 text-white shadow-xl sm:px-8'
 					>
+						<SearchBarList />
+
 						<motion.button whileHover={{ scale: 1.05 }}>
 							<Link href='/designer/tshirts'>T-SHIRTS - SHORT SLEEVES</Link>
 						</motion.button>
@@ -91,15 +94,15 @@ function Navbar(props: any) {
 						</motion.button>
 
 						<motion.button whileHover={{ scale: 1.05 }}>
+							<Link href='/designer/shoes'>SHOES & BOOTS</Link>
+						</motion.button>
+
+						<motion.button whileHover={{ scale: 1.05 }}>
 							<Link href='/designer/accessories'>ACCESSORIES</Link>
 						</motion.button>
 
 						<motion.button whileHover={{ scale: 1.05 }}>
 							<Link href='/designer/pants'>PANTS</Link>
-						</motion.button>
-
-						<motion.button whileHover={{ scale: 1.05 }}>
-							<Link href='/designer/shoes'>SHOES</Link>
 						</motion.button>
 					</motion.ul>
 				) : null}

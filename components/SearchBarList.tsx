@@ -2,7 +2,7 @@ import { IconContext } from 'react-icons'
 import { AiOutlineSearch } from 'react-icons/ai'
 import { useState } from 'react'
 
-export default function SearchBar(props: any) {
+export default function SearchBarList(props: any) {
 	const [searchBar, setSearchBar] = useState(false)
 	const openSearchBar = () => {
 		setSearchBar(true)
@@ -14,7 +14,7 @@ export default function SearchBar(props: any) {
 	return (
 		<div>
 			<button
-				className='relative z-10 flex h-12 w-12 flex-row items-center justify-start rounded-xl bg-neutral-800 shadow-lg duration-300 ease-in-out focus-within:w-96  focus:transition-all sm:hidden sm:w-max'
+				className='relative z-10 flex h-12 w-12 flex-row items-center justify-start rounded-xl bg-neutral-700 shadow-lg duration-300 ease-in-out focus-within:w-96 focus:transition-all sm:w-max md:hidden'
 				onClick={openSearchBar}
 			>
 				{searchBar ? (
@@ -23,6 +23,7 @@ export default function SearchBar(props: any) {
 						placeholder='Quick search...'
 						className='order-2 w-screen bg-transparent pr-4 text-white placeholder-neutral-400 outline-none'
 						autoFocus
+						onBlur={closeSearchBar}
 					></input>
 				) : null}
 
@@ -32,13 +33,6 @@ export default function SearchBar(props: any) {
 					</IconContext.Provider>
 				</div>
 			</button>
-
-			{searchBar ? (
-				<div
-					className='absolute inset-0 z-0 h-screen bg-black opacity-50'
-					onClick={closeSearchBar}
-				></div>
-			) : null}
 		</div>
 	)
 }

@@ -20,7 +20,7 @@ module.exports = {
 					"url('https://images.pexels.com/photos/7203747/pexels-photo-7203747.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')",
 				'shoes-img':
 					"url('https://images.pexels.com/photos/9999187/pexels-photo-9999187.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')",
-			},
+				},
 		},
 		screens: {
 			sm: { max: '640px' },

@@ -29,13 +29,16 @@ export default function LoginNewUser(props: any) {
 
 	function validateName() {
 		if (nameInput.length == 0) {
-			setNameError('Name empty.')
+			setNameError('Name input is empty.')
+			setNameStyle(invalidInputStyle)
 			return false
 		} else if (nameInput.length > 50) {
-			setNameError('Name too long.')
+			setNameError('Name input is too long.')
+			setNameStyle(invalidInputStyle)
 			return false
 		} else {
 			setNameError('')
+			setNameStyle(validInputStyle)
 			return true
 		}
 	}
@@ -45,7 +48,7 @@ export default function LoginNewUser(props: any) {
 			setNameError('')
 			setNameStyle(initialInputStyle)
 		} else if (nameInput.length > 50) {
-			setNameError('Name too long.')
+			setNameError('Name input is too long.')
 			setNameStyle(invalidInputStyle)
 		} else {
 			setNameError('')
@@ -58,7 +61,7 @@ export default function LoginNewUser(props: any) {
 			setPasswordError('')
 			return true
 		} else {
-			setPasswordError('Too short.')
+			setPasswordError('Password input is too short.')
 			return false
 		}
 	}
@@ -134,9 +137,11 @@ export default function LoginNewUser(props: any) {
 		var regex = /\S+@\S+\.\S+/
 		if (regex.test(emailInput)) {
 			setEmailError('')
+			setEmailStyle(validInputStyle)
 			return true
 		} else {
 			setEmailError('Invalid email')
+			setEmailStyle(invalidInputStyle)
 			return false
 		}
 	}
