@@ -8,7 +8,7 @@ export default function TestComponent() {
 	return (
 		<div className='grid grid-cols-2 place-content-center gap-8 bg-gradient-to-b from-neutral-800 to-neutral-900 px-24 py-16 sm:grid-cols-1 md:grid-cols-3'>
 			{data.products.map((product: any) => (
-				<Link href={`/product/${product.slug}`}>
+				<Link href={`/designer/tshirts/${product.slug}`}>
 					<button className='rounded-xl bg-neutral-700 text-white shadow-2xl duration-200 hover:scale-105'>
 						<div className='flex flex-col items-center justify-center pb-4'>
 							<img className='rounded-xl p-4' src={product.image} />
