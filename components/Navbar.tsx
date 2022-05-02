@@ -133,8 +133,11 @@ function Navbar(props: any) {
 				</button>
 
 				<button className='p-3 hover:rounded-xl hover:bg-neutral-800 hover:shadow-lg'>
+					
 					<IconContext.Provider value={{ size: '24px' }}>
-						<RiHeart2Line />
+						<Link href='/wishlist' passHref>
+							<RiHeart2Line />
+						</Link>
 					</IconContext.Provider>
 				</button>
 

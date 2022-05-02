@@ -1,35 +1,117 @@
 import { data } from 'utils/data'
 import { IconContext } from 'react-icons/lib'
 import { RiHeart2Fill } from 'react-icons/ri'
-import { AiOutlineShoppingCart } from 'react-icons/ai'
-import Link from 'next/link'
+import { AiOutlineArrowRight } from 'react-icons/ai'
 
 export default function TestComponent() {
 	return (
-		<div className='grid grid-cols-2 place-content-center gap-8 bg-gradient-to-b from-neutral-800 to-neutral-900 px-24 py-16 sm:grid-cols-1 md:grid-cols-3'>
-			{data.products.map((product: any) => (
-				<Link href={`/designer/tshirts/${product.slug}`}>
-					<button className='rounded-xl bg-neutral-700 text-white shadow-2xl duration-200 hover:scale-105'>
-						<div className='flex flex-col items-center justify-center pb-4'>
-							<img className='rounded-xl p-4' src={product.image} />
-							<div className='flex h-1/3 flex-row gap-4'>
-								<h1 className='text-bold py-1 px-4'>${product.price}</h1>
-								<div className='rounded-xl bg-neutral-600 p-2 hover:bg-neutral-500'>
-									<IconContext.Provider value={{ color: 'white', size: '24px' }}>
-										<RiHeart2Fill />
-									</IconContext.Provider>
-								</div>
+		<div>
+			<div className='bg-neutral-900 text-white p-8 flex justify-center'>SHOPPING BAG</div>
+			<div className='bg-neutral-900 text-white grid grid-cols-4 gap-4 p-8'>
+                <div className='bg-neutral-600 col-span-3 shadow-xl rounded grid grid-cols-6 p-4 justify-between'>
+					<div>Product photo</div>
 
-								<div className='rounded-xl bg-neutral-600 p-2 hover:bg-neutral-500'>
-									<IconContext.Provider value={{ size: '24px' }}>
-										<AiOutlineShoppingCart />
-									</IconContext.Provider>
-								</div>
-							</div>
+					<div className='col-span-2'>Product type and description</div>
+
+					<div className='flex flex-col justify-start'>
+						<div className='font-bold'>189.99 €</div>
+						<div>VAT included</div>
+					</div>
+
+					<div className='flex flex-col justify-start col-span-2'>
+						<div className='flex flex-row justify-between'>
+							<div>Size</div>
+							<button>X</button>
 						</div>
-					</button>
-				</Link>
-			))}
+
+						<div className='flex flex-row justify-start space-x-2'>
+							<div className='font-bold'>M</div>
+							<button className='underline'>Change</button>
+						</div>
+
+						<br></br>
+
+						<div>Quantity</div>
+						<div className='font-bold'>1</div>
+
+						<br></br>
+
+						<button className='space-x-2 justify-center text-black flex flex-row rounded-lg bg-white p-3 shadow-2xl duration-200 hover:scale-105'>
+							<div>Add to Watchlist</div>
+							<IconContext.Provider value={{ size: '20px' }}>
+								<RiHeart2Fill />
+							</IconContext.Provider>
+						</button>
+					</div>
+
+				</div>
+
+                <div className='bg-neutral-600 p-4 rounded shadow-xl'>
+					<div className='flex flex-col'>
+						<h1 className='font-bold'>Summary</h1>
+						<br></br>
+						<div className='flex flex-row justify-between'>
+							<h3>Subtotal</h3>
+							<h3>189.99 €</h3>
+						</div>
+						<div className='flex flex-row justify-between'>
+							<h3>Delivery</h3>
+							<h3>9.99 €</h3>
+						</div>
+						<hr className='my-4'></hr>
+						<div className='flex flex-row justify-between'>
+							<h3>Total</h3>
+							<h4>EUR <span className='font-bold text-xl'>199.98 €</span></h4>
+						</div>
+						<div className='flex flex-row justify-end'>VAT included</div>
+					</div>
+				</div>
+
+				<div className='bg-neutral-600 col-span-3 shadow-xl rounded grid grid-cols-6 p-4 justify-between'>
+					<div>Product photo</div>
+
+					<div className='col-span-2'>Product type and description</div>
+
+					<div className='flex flex-col justify-start'>
+						<div className='font-bold'>189.99 €</div>
+						<div>VAT included</div>
+					</div>
+
+					<div className='flex flex-col justify-start col-span-2'>
+						<div className='flex flex-row justify-between'>
+							<div>Size</div>
+							<button>X</button>
+						</div>
+
+						<div className='flex flex-row justify-start space-x-2'>
+							<div className='font-bold'>M</div>
+							<button className='underline'>Change</button>
+						</div>
+
+						<br></br>
+
+						<div>Quantity</div>
+						<div className='font-bold'>1</div>
+
+						<br></br>
+
+						<button className='space-x-2 justify-center text-black flex flex-row rounded-lg bg-white p-3 shadow-2xl duration-200 hover:scale-105'>
+							<div>Add to Watchlist</div>
+							<IconContext.Provider value={{ size: '20px' }}>
+								<RiHeart2Fill />
+							</IconContext.Provider>
+						</button>
+					</div>
+
+				</div>
+
+                <button className='h-14 bg-neutral-600 p-4 rounded flex flex-row justify-center space-x-4 shadow-xl'>
+					<div>Proceed to Checkout</div>
+					<IconContext.Provider value={{ size: '20px' }}>
+						<AiOutlineArrowRight />
+					</IconContext.Provider>
+				</button>
+            </div>
 		</div>
-	)
+		)
 }
