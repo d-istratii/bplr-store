@@ -7,6 +7,15 @@ import { data } from 'utils/data'
 import { IconContext } from 'react-icons/lib'
 import { RiHeart2Fill } from 'react-icons/ri'
 import { AiOutlineShoppingCart, AiOutlineDown } from 'react-icons/ai'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Navigation, Pagination, Autoplay } from 'swiper'
+import Link from 'next/link'
+
+import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
+import 'swiper/css/scrollbar'
+import 'swiper/css/autoplay'
 
 export default function ProductPage() {
 	const [dropdownClothingSize, setDropdownClothingSize] = useState(false)
@@ -27,9 +36,32 @@ export default function ProductPage() {
 		<div>
 			<Navbar />
 			<div className='grid h-screen grid-cols-2 place-content-center gap-16  bg-gradient-to-b from-neutral-900 to-neutral-800 pt-24 sm:grid-cols-1'>
-				<button className='justify-self-end rounded-3xl bg-white text-white shadow-2xl duration-200 hover:scale-105'>
+				<button className='justify-self-end rounded-3xl bg-white text-white shadow-2xl duration-200 hover:scale-110 mb-4'>
 					<div className='flex flex-col items-center justify-center pb-4'>
-						<img className='w-72 p-4' src={product.image} />
+						{/* <img className='w-72 p-4' src={product.image} /> */}
+						<button>
+							<Swiper
+								className='w-96 rounded-2xl bg-white'
+								modules={[Navigation, Pagination, Autoplay]}
+								slidesPerView={1}
+								navigation
+								// autoplay={{ delay: 3000 }}
+								pagination={{ clickable: true, dynamicBullets: true }}
+							>
+								{/* T-shirts slides */}
+								<SwiperSlide className='p-8'>
+									<img src='https://cdn-images.farfetch-contents.com/16/52/41/00/16524100_32567051_1000.jpg'></img>
+								</SwiperSlide>
+
+								<SwiperSlide className='p-8'>
+									<img src='https://cdn-images.farfetch-contents.com/16/60/53/51/16605351_32566794_1000.jpg'></img>
+								</SwiperSlide>
+
+								<SwiperSlide className='p-8'>
+									<img src='https://cdn-images.farfetch-contents.com/16/60/53/51/16605351_32566794_1000.jpg'></img>
+								</SwiperSlide>
+							</Swiper>
+						</button>
 					</div>
 				</button>
 
@@ -161,7 +193,6 @@ export default function ProductPage() {
 				</svg>
 			</div>
 
-			
 			<div className='flex flex-col justify-center items-center text-white h-screen bg-neutral-900'>
 				<h1>Description</h1>
 			</div>
