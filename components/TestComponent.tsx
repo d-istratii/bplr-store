@@ -9,13 +9,12 @@ export default function Wishlist() {
 		<div>
 			<Navbar />
 			<div>
-				<h1 className='bg-neutral-900 text-white p-8 flex justify-center pt-24'>
+				<h1 className='bg-neutral-800 text-white p-8 flex justify-center pt-24'>
 					SHOPPING BAG
 				</h1>
 				<div className='bg-neutral-900 text-white grid grid-cols-4 gap-4 p-8'>
 					<div className='bg-neutral-600 col-span-3 shadow-xl rounded grid grid-cols-6 p-4 justify-between'>
 						<div>Product photo</div>
-
 						<div className='col-span-2'>Product type and description</div>
 
 						<div className='flex flex-col justify-start'>
@@ -54,6 +53,7 @@ export default function Wishlist() {
 						<div className='flex flex-col'>
 							<h1 className='font-bold'>Summary</h1>
 							<br></br>
+
 							<div className='flex flex-row justify-between'>
 								<h3>Subtotal</h3>
 								<h3>189.99 €</h3>

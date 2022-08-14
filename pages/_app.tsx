@@ -27,13 +27,16 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
 				<meta name='viewport' content='initial-scale=1.0, width=device-width' />
 			</Head>
 
-			{!loading ? (
+			{/* {!loading ? (
 				<SessionProvider session={session}>
 					<Component {...pageProps} />
 				</SessionProvider>
 			) : (
 				<Loading />
-			)}
+			)} */}
+			<SessionProvider session={session}>
+				<Component {...pageProps} />
+			</SessionProvider>
 		</div>
 	)
 }
