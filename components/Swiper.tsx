@@ -1,13 +1,11 @@
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { Navigation, Pagination, Autoplay } from 'swiper'
-import { motion } from 'framer-motion'
-import Link from 'next/link'
-
-import 'swiper/css'
-import 'swiper/css/navigation'
-import 'swiper/css/pagination'
-import 'swiper/css/scrollbar'
-import 'swiper/css/autoplay'
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Autoplay } from "swiper";
+import { motion } from "framer-motion";
+import Link from "next/link";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/autoplay";
 
 export default function Slider() {
     return (
@@ -16,42 +14,38 @@ export default function Slider() {
                 modules={[Navigation, Pagination, Autoplay]}
                 slidesPerView={1}
                 navigation
-                // autoplay={{ delay: 3000 }}
+                autoplay={{ delay: 3000 }}
                 pagination={{ clickable: true }}
             >
                 {/* T-shirts slides */}
-                <SwiperSlide className="bg-fixed h-screen bg-tshirt-img bg-cover bg-center">
-                    <div>
-                        <div className="z-0 flex h-screen w-full flex-col items-center justify-between space-y-4 p-4 text-lg text-white">
-                            <div className="flex-none"></div>
-                            <div className="flex flex-col items-center space-y-2">
-                                <h1 className="text-8xl sm:text-5xl">
-                                    T-SHIRTS
-                                </h1>
-                                <h1 className="bg-gradient-to-r from-indigo-600 to-rose-300 bg-clip-text text-6xl font-extrabold text-transparent sm:text-3xl">
-                                    MADE TO ORDER
-                                </h1>
-                                <Link href="/designer/t-shirts" passHref>
-                                    <motion.button
-                                        whileHover={{
-                                            scale: 1.1,
-                                            transition: { duration: 0.3 }
-                                        }}
-                                        className="rounded bg-white py-2 px-6 font-bold text-neutral-900"
-                                    >
-                                        SHOP NOW
-                                    </motion.button>
-                                </Link>
-                            </div>
-
-                            <div></div>
+                <SwiperSlide>
+                    <div className="z-0 flex h-screen w-full flex-col items-center justify-between space-y-4 bg-tshirt-img bg-cover         bg-center p-4 text-lg text-white">
+                        <div className="flex-none"></div>
+                        <div className="flex flex-col items-center space-y-2">
+                            <h1 className="text-8xl sm:text-5xl">T-SHIRTS</h1>
+                            <h1 className="bg-gradient-to-r from-indigo-600 to-rose-300 bg-clip-text text-6xl font-extrabold text-transparent sm:text-3xl">
+                                MADE TO ORDER
+                            </h1>
+                            <Link href="/designer/t-shirts" passHref>
+                                <motion.button
+                                    whileHover={{
+                                        scale: 1.1,
+                                        transition: { duration: 0.3 },
+                                    }}
+                                    className="rounded bg-white py-2 px-6 font-bold text-neutral-900"
+                                >
+                                    SHOP NOW
+                                </motion.button>
+                            </Link>
                         </div>
+
+                        <div></div>
                     </div>
                 </SwiperSlide>
 
                 {/* Shirts slide */}
                 <SwiperSlide>
-                    <div className="z-0 flex h-screen w-full flex-col items-center justify-between space-y-4  bg-shirts-img bg-cover bg-center p-4 text-lg text-white">
+                    <div className="z-0 flex h-screen w-full flex-col items-center justify-between space-y-4 bg-shirts-img bg-cover bg-center p-4 text-lg text-white">
                         <div className="flex-none"></div>
                         <div className="flex flex-col items-center space-y-2">
                             <h1 className="text-8xl sm:text-5xl">SHIRTS</h1>
@@ -62,7 +56,7 @@ export default function Slider() {
                                 <motion.button
                                     whileHover={{
                                         scale: 1.1,
-                                        transition: { duration: 0.3 }
+                                        transition: { duration: 0.3 },
                                     }}
                                     className="rounded bg-white py-2 px-6 font-bold text-neutral-900"
                                 >
@@ -90,7 +84,7 @@ export default function Slider() {
                                 <motion.button
                                     whileHover={{
                                         scale: 1.1,
-                                        transition: { duration: 0.3 }
+                                        transition: { duration: 0.3 },
                                     }}
                                     className="rounded bg-neutral-900 py-2 px-6 font-bold text-white"
                                 >
@@ -117,7 +111,7 @@ export default function Slider() {
                                 <motion.button
                                     whileHover={{
                                         scale: 1.1,
-                                        transition: { duration: 0.3 }
+                                        transition: { duration: 0.3 },
                                     }}
                                     className="rounded bg-neutral-900 py-2 px-6 font-bold text-white"
                                 >
@@ -143,7 +137,7 @@ export default function Slider() {
                                 <motion.button
                                     whileHover={{
                                         scale: 1.1,
-                                        transition: { duration: 0.3 }
+                                        transition: { duration: 0.3 },
                                     }}
                                     className="rounded bg-white py-2 px-6 font-bold text-neutral-900"
                                 >
@@ -157,5 +151,5 @@ export default function Slider() {
                 </SwiperSlide>
             </Swiper>
         </div>
-    )
+    );
 }

@@ -233,6 +233,7 @@ function ProductPage({ product }: Product) {
                     </div>
                 </div>
             </div>
+
             <div className="line absolute left-0 w-full overflow-hidden fill-neutral-800">
                 <svg
                     data-name="Layer 1"

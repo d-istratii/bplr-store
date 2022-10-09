@@ -1,83 +1,83 @@
-import React, { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
-import Link from 'next/link'
-import Login from './Login'
-import Modal from '@mui/material/Modal'
-import { IconContext } from 'react-icons'
-import { RiAccountCircleLine, RiHeart2Line } from 'react-icons/ri'
-import { AiOutlineShoppingCart, AiOutlineDown } from 'react-icons/ai'
-import SearchBar from './SearchBar'
-import SearchBarList from './SearchBarList'
-import { useDispatch, useSelector } from 'react-redux'
-import { bindActionCreators } from 'redux'
-import { actionCreators, State } from 'state'
+import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import Link from "next/link";
+import Login from "./Login";
+import Modal from "@mui/material/Modal";
+import { IconContext } from "react-icons";
+import { RiAccountCircleLine, RiHeart2Line } from "react-icons/ri";
+import { AiOutlineShoppingCart, AiOutlineDown } from "react-icons/ai";
+import SearchBar from "./SearchBar";
+import SearchBarList from "./SearchBarList";
+import { useDispatch, useSelector } from "react-redux";
+import { bindActionCreators } from "redux";
+import { actionCreators, State } from "state";
 
 function Navbar(props: any) {
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
 
     const { itemAddition, itemDeduction, cartInitialization } =
-        bindActionCreators(actionCreators, dispatch)
+        bindActionCreators(actionCreators, dispatch);
 
-    const amount = useSelector((state: State) => state.cart)
+    const amount = useSelector((state: State) => state.cart);
 
     const initialNavbarStyle: string =
-        'fixed inset-x-0 top-0 z-20 flex h-24 items-center justify-between p-4'
+        "fixed inset-x-0 top-0 z-20 flex h-24 items-center justify-between p-4";
 
     const scrolledNavbarStyle: string =
-        'fixed inset-x-0 top-0 z-20 flex h-24 items-center justify-between bg-neutral-900 p-4 shadow-lg'
+        "fixed inset-x-0 top-0 z-20 flex h-24 items-center justify-between bg-neutral-900 p-4 shadow-lg";
 
-    const [navbarState, setNavbarState] = useState(false)
-    const [navbarStyle, setNavbarStyle] = useState(initialNavbarStyle)
-    const [dropdownMenu, setDropdownMenu] = useState(false)
-    const [loginModal, setLoginModal] = useState(false)
+    const [navbarState, setNavbarState] = useState(false);
+    const [navbarStyle, setNavbarStyle] = useState(initialNavbarStyle);
+    const [dropdownMenu, setDropdownMenu] = useState(false);
+    const [loginModal, setLoginModal] = useState(false);
 
     const changeNavbarStyleOnScroll = () => {
-        window.scrollY === 0 ? setNavbarState(false) : setNavbarState(true)
-    }
+        window.scrollY === 0 ? setNavbarState(false) : setNavbarState(true);
+    };
 
     const variants = {
         open: { y: 96 },
-        closed: { y: 0 }
-    }
+        closed: { y: 0 },
+    };
 
     const toggleLoginModal = () => {
-        setLoginModal((loginModal) => !loginModal)
-    }
+        setLoginModal((loginModal) => !loginModal);
+    };
 
     const changeNavbarStyleOnClick = () => {
         // if scrolled don't change to transparent background
         if (window.scrollY > 0 && !dropdownMenu) {
             if (!dropdownMenu) {
-                setNavbarStyle(scrolledNavbarStyle)
+                setNavbarStyle(scrolledNavbarStyle);
             }
         } else {
             if (!dropdownMenu) {
-                setNavbarStyle(scrolledNavbarStyle)
+                setNavbarStyle(scrolledNavbarStyle);
             } else {
-                setNavbarStyle(initialNavbarStyle)
+                setNavbarStyle(initialNavbarStyle);
             }
         }
-    }
+    };
 
     useEffect(() => {
-        window.addEventListener('scroll', changeNavbarStyleOnScroll)
-    })
+        window.addEventListener("scroll", changeNavbarStyleOnScroll);
+    });
 
     return (
         <div>
-            <div className="fixed inset-x-0 top-0 h-24 bg-gradient-to-b z-10 from-neutral-900"></div>
+            <div className="fixed inset-x-0 top-0 z-10 h-24 bg-gradient-to-b from-neutral-900"></div>
             <motion.div
-                className="fixed inset-x-0 -top-24 h-24 bg-neutral-900 z-10 shadow-lg"
-                animate={navbarState ? 'open' : 'closed'}
+                className="fixed inset-x-0 -top-24 z-10 h-24 bg-neutral-900 shadow-lg"
+                animate={navbarState ? "open" : "closed"}
                 variants={variants}
-                transition={{ ease: 'anticipate', duration: 0.8 }}
+                transition={{ ease: "anticipate", duration: 0.6 }}
             ></motion.div>
             <motion.nav className={navbarStyle}>
                 <div className="flex flex-row">
                     <motion.button
                         whileHover={{
                             scale: 1.1,
-                            transition: { duration: 0.3 }
+                            transition: { duration: 0.3 },
                         }}
                         className="pl-8 text-3xl font-black tracking-tighter text-white sm:hidden"
                     >
@@ -90,18 +90,18 @@ function Navbar(props: any) {
 
                     <motion.button
                         onClick={() => {
-                            setDropdownMenu(!dropdownMenu)
-                            changeNavbarStyleOnClick()
+                            setDropdownMenu(!dropdownMenu);
+                            changeNavbarStyleOnClick();
                         }}
                         whileHover={{
                             scale: 1.2,
-                            transition: { duration: 0.3 }
+                            transition: { duration: 0.3 },
                         }}
                         animate={{ rotate: dropdownMenu ? 180 : 0 }}
                         className="ml-1 text-white sm:p-4"
                     >
                         <IconContext.Provider
-                            value={{ color: 'white', size: '16px' }}
+                            value={{ color: "white", size: "16px" }}
                         >
                             <AiOutlineDown />
                         </IconContext.Provider>
@@ -111,13 +111,13 @@ function Navbar(props: any) {
                         <motion.ul
                             initial={{ y: -28 }}
                             animate={{ y: 64 }}
-                            transition={{ ease: 'anticipate', duration: 0.6 }}
+                            transition={{ ease: "anticipate", duration: 0.6 }}
                             className="
-						absolute left-0 flex 
-						w-screen flex-col items-start 
-						justify-center  space-y-4 border-t
-						border-neutral-800 bg-gradient-to-b from-neutral-900 
-						to-neutral-800 py-4 px-10 text-white shadow-xl sm:px-8 z-20"
+						absolute left-0 z-20 
+						flex w-screen flex-col 
+						items-start  justify-center space-y-4
+						border-t border-neutral-800 bg-gradient-to-b 
+						from-neutral-900 to-neutral-800 py-4 px-10 text-white shadow-xl sm:px-8"
                         >
                             <motion.button whileHover={{ scale: 1.05 }}>
                                 <Link href="/designer/tshirts">
@@ -173,27 +173,33 @@ function Navbar(props: any) {
                                 setLoginModal={setLoginModal}
                             />
                         </Modal>
-                        <IconContext.Provider value={{ size: '24px' }}>
+                        <IconContext.Provider value={{ size: "24px" }}>
                             <RiAccountCircleLine onClick={toggleLoginModal} />
                         </IconContext.Provider>
                     </button>
 
                     <button className="p-3 hover:rounded-xl hover:bg-neutral-800 hover:shadow-lg">
-                        <IconContext.Provider value={{ size: '24px' }}>
+                        <IconContext.Provider value={{ size: "24px" }}>
                             <Link href="/wishlist" passHref>
                                 <RiHeart2Line />
                             </Link>
                         </IconContext.Provider>
                     </button>
 
-                    <button className="p-3 hover:rounded-xl hover:bg-neutral-800 hover:shadow-lg">
-                        <IconContext.Provider value={{ size: '24px' }}>
+                    <button className="p-3 pr-6 hover:rounded-xl hover:bg-neutral-800 hover:shadow-lg">
+                        <IconContext.Provider value={{ size: "24px" }}>
                             <Link href="/cart" passHref>
                                 <div>
                                     <AiOutlineShoppingCart />
-                                    <div className="absolute bottom-12 right-2 h-5 w-8 rounded-full border border-neutral-900 bg-neutral-100 font-semibold text-neutral-900">
+                                    <div
+                                        className={`absolute bottom-12 h-5 ${
+                                            amount < 10
+                                                ? "right-7 w-6"
+                                                : "right-5 w-8"
+                                        } rounded-full border border-neutral-900 bg-neutral-100 font-semibold text-neutral-900`}
+                                    >
                                         <p className="text-xs text-neutral-700">
-                                            {amount}
+                                            {amount < 100 ? amount : "99+"}
                                         </p>
                                     </div>
                                 </div>
@@ -203,7 +209,7 @@ function Navbar(props: any) {
                 </div>
             </motion.nav>
         </div>
-    )
+    );
 }
 
-export default Navbar
+export default Navbar;
