@@ -21,7 +21,7 @@ export default function SearchBarList(props: any) {
 					<input
 						type='text'
 						placeholder='Quick search...'
-						className='order-2 w-screen bg-transparent pr-4 text-white placeholder-neutral-400 outline-none'
+						className='sm:mr-8 order-2 w-screen bg-transparent pr-4 text-white placeholder-neutral-400 outline-none'
 						autoFocus
 						onBlur={closeSearchBar}
 					></input>

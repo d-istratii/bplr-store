@@ -1,9 +1,15 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import ScrollLock from 'react-scrolllock'
 
 export default function Cookies() {
 	const [cookiesModal, setCookiesModal] = useState(true)
+	const acceptCookies = useRef<HTMLButtonElement>(null)
+
+	useEffect(() => {
+		acceptCookies.current?.focus()
+	}, [])
+
 	return (
 		<div>
 			{cookiesModal ? (
@@ -34,8 +40,9 @@ export default function Cookies() {
 							</section>
 							<div className='flex flex-row-reverse'>
 								<button
-									className='rounded-lg bg-white p-3 font-bold text-neutral-900 shadow-2xl'
+									className='rounded-lg bg-white p-3 font-bold text-neutral-900 shadow-2xl outline focus:outline-offset-4 outline-neutral-400'
 									onClick={e => setCookiesModal(false)}
+									ref={acceptCookies}
 								>
 									Accept All
 								</button>

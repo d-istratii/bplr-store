@@ -1,124 +1,40 @@
-import Navbar from 'components/Navbar'
-import Footer from 'components/Footer'
-import { IconContext } from 'react-icons/lib'
-import { RiHeart2Fill } from 'react-icons/ri'
-import { AiOutlineArrowRight } from 'react-icons/ai'
+import React from "react";
+import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 
-export default function Wishlist() {
-	return (
-		<div>
-			<Navbar />
-			<div>
-				<h1 className='bg-neutral-800 text-white p-8 flex justify-center pt-24'>
-					SHOPPING BAG
-				</h1>
-				<div className='bg-neutral-900 text-white grid grid-cols-4 gap-4 p-8'>
-					<div className='bg-neutral-600 col-span-3 shadow-xl rounded grid grid-cols-6 p-4 justify-between'>
-						<div>Product photo</div>
-						<div className='col-span-2'>Product type and description</div>
+function TestComponent() {
+    const [pageScrollState, setPageScrollState] = useState(false);
 
-						<div className='flex flex-col justify-start'>
-							<div className='font-bold'>189.99 €</div>
-							<div>VAT included</div>
-						</div>
+    const pageScrollHandler = () => {
+        if (window.scrollY > 0) {
+            setPageScrollState(true);
+        } else setPageScrollState(false);
+    };
 
-						<div className='flex flex-col justify-start col-span-2'>
-							<div className='flex flex-row justify-between'>
-								<div>Size</div>
-								<button>X</button>
-							</div>
+    const variants = {
+        open: { y: 96 },
+        closed: { y: 0 },
+    };
 
-							<div className='flex flex-row justify-start space-x-2'>
-								<div className='font-bold'>M</div>
-								<button className='underline'>Change</button>
-							</div>
+    useEffect(() => {
+        window.addEventListener("scroll", pageScrollHandler);
+    });
 
-							<br></br>
-
-							<div>Quantity</div>
-							<div className='font-bold'>1</div>
-
-							<br></br>
-
-							<button className='space-x-2 justify-center text-black flex flex-row rounded-lg bg-white-800 p-3 shadow-2xl duration-200 hover:scale-105'>
-								<div>Add to Watchlist</div>
-								<IconContext.Provider value={{ size: '20px' }}>
-									<RiHeart2Fill />
-								</IconContext.Provider>
-							</button>
-						</div>
-					</div>
-
-					<div className='bg-neutral-600 p-4 rounded shadow-xl'>
-						<div className='flex flex-col'>
-							<h1 className='font-bold'>Summary</h1>
-							<br></br>
-
-							<div className='flex flex-row justify-between'>
-								<h3>Subtotal</h3>
-								<h3>189.99 €</h3>
-							</div>
-							<div className='flex flex-row justify-between'>
-								<h3>Delivery</h3>
-								<h3>9.99 €</h3>
-							</div>
-							<hr className='my-4'></hr>
-							<div className='flex flex-row justify-between'>
-								<h3>Total</h3>
-								<h4>
-									EUR <span className='font-bold text-xl'>199.98 €</span>
-								</h4>
-							</div>
-							<div className='flex flex-row justify-end'>VAT included</div>
-						</div>
-					</div>
-
-					<div className='bg-neutral-600 col-span-3 shadow-xl rounded grid grid-cols-6 p-4 justify-between'>
-						<div>Product photo</div>
-
-						<div className='col-span-2'>Product type and description</div>
-
-						<div className='flex flex-col justify-start'>
-							<div className='font-bold'>189.99 €</div>
-							<div>VAT included</div>
-						</div>
-
-						<div className='flex flex-col justify-start col-span-2'>
-							<div className='flex flex-row justify-between'>
-								<div>Size</div>
-								<button>X</button>
-							</div>
-
-							<div className='flex flex-row justify-start space-x-2'>
-								<div className='font-bold'>M</div>
-								<button className='underline'>Change</button>
-							</div>
-
-							<br></br>
-
-							<div>Quantity</div>
-							<div className='font-bold'>1</div>
-
-							<br></br>
-
-							<button className='space-x-2 justify-center text-black flex flex-row rounded-lg bg-white p-3 shadow-2xl duration-200 hover:scale-105'>
-								<div>Add to Watchlist</div>
-								<IconContext.Provider value={{ size: '20px' }}>
-									<RiHeart2Fill />
-								</IconContext.Provider>
-							</button>
-						</div>
-					</div>
-
-					<button className='h-14 bg-neutral-600 p-4 rounded flex flex-row justify-center space-x-4 shadow-xl'>
-						<div>Proceed to Checkout</div>
-						<IconContext.Provider value={{ size: '20px' }}>
-							<AiOutlineArrowRight />
-						</IconContext.Provider>
-					</button>
-				</div>
-			</div>
-			<Footer />
-		</div>
-	)
+    return (
+        <div>
+            <div className="fixed inset-x-0 top-0 h-24 bg-gradient-to-b z-0 from-neutral-900"></div>
+            <motion.div
+                className="fixed inset-x-0 -top-24 h-24 bg-neutral-900"
+                animate={pageScrollState ? "open" : "closed"}
+                variants={variants}
+                transition={{ ease: "anticipate", duration: 0.8 }}
+            ></motion.div>
+            <div className="bg-fixed h-screen text-white bg-pants-img"></div>
+            <div className="h-screen text-white bg-neutral-900 flex flex-row justify-center items-center">
+                <h1 className="text-8xl">Description</h1>
+            </div>
+        </div>
+    );
 }
+
+export default TestComponent;

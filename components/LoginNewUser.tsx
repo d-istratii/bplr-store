@@ -116,6 +116,7 @@ export default function LoginNewUser(props: any) {
 			setPasswordStyle(invalidInputStyle)
 			return false
 		}
+		µ
 	}
 
 	function validatePasswordBlur() {
