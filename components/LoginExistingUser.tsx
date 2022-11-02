@@ -1,73 +1,73 @@
-import React, { useState } from 'react'
-import { IconContext } from 'react-icons'
-import { FcGoogle } from 'react-icons/fc'
-import { motion } from 'framer-motion'
-import Link from 'next/link'
+import { useState } from 'react';
+import { IconContext } from 'react-icons';
+import { FcGoogle } from 'react-icons/fc';
+import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 function LoginExistingUser(props: any) {
 	const initialInputStyle =
-		'border-0 border-gray-400 py-2 px-7 rounded w-full text-white outline-0 bg-neutral-700 focus:outline-0 focus:outline'
+		'border-0 border-gray-400 py-2 px-7 rounded w-full text-white outline-0 bg-neutral-700 focus:outline-0 focus:outline';
 	const invalidInputStyle =
-		'border border-red-400 py-2 px-7 rounded w-full text-white outline-0 bg-red-700/10 focus:outline-0 focus:outline'
+		'border border-red-400 py-2 px-7 rounded w-full text-white outline-0 bg-red-700/10 focus:outline-0 focus:outline';
 	const validInputStyle =
-		'border-2 border-google-green py-2 px-7 rounded w-full text-white outline-0 bg-google-green/10 focus:outline-0 focus:outline'
+		'border-2 border-google-green py-2 px-7 rounded w-full text-white outline-0 bg-google-green/10 focus:outline-0 focus:outline';
 
-	const [emailInput, setEmailInput] = useState('')
-	const [emailError, setEmailError] = useState('')
-	const [emailStyle, setEmailStyle] = useState(initialInputStyle)
+	const [emailInput, setEmailInput] = useState('');
+	const [emailError, setEmailError] = useState('');
+	const [emailStyle, setEmailStyle] = useState(initialInputStyle);
 
-	const [passwordInput, setPasswordInput] = useState('')
-	const [passwordError, setPasswordError] = useState('')
-	const [passwordStyle, setPasswordStyle] = useState(initialInputStyle)
+	const [passwordInput, setPasswordInput] = useState('');
+	const [passwordError, setPasswordError] = useState('');
+	const [passwordStyle, setPasswordStyle] = useState(initialInputStyle);
 
-	const [formState, setFormState] = useState(0)
-	const [formVisibility, setFormVisibility] = useState('')
+	const [formState, setFormState] = useState(0);
+	const [formVisibility, setFormVisibility] = useState('');
 
 	function isLengthy(password: string) {
 		if (password.length >= 8) {
-			setPasswordError('')
-			return true
+			setPasswordError('');
+			return true;
 		} else {
-			setPasswordError('Too short.')
-			return false
+			setPasswordError('Too short.');
+			return false;
 		}
 	}
 
 	function isUpperCase(password: string) {
-		var regex = /[A-Z]/
+		var regex = /[A-Z]/;
 		if (regex.test(password)) {
-			setPasswordError('')
-			return true
+			setPasswordError('');
+			return true;
 		} else {
-			setPasswordError('Missing upper-case character.')
-			return false
+			setPasswordError('Missing upper-case character.');
+			return false;
 		}
 	}
 
 	function isLowerCase(password: string) {
-		var regex = /[a-z]/
+		var regex = /[a-z]/;
 		if (regex.test(password)) {
-			setPasswordError('')
-			return true
+			setPasswordError('');
+			return true;
 		} else {
-			setPasswordError('Missing lower-case character.')
-			return false
+			setPasswordError('Missing lower-case character.');
+			return false;
 		}
 	}
 
 	function isSpecialCase(password: string) {
-		var regex = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/
+		var regex = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
 		if (regex.test(password)) {
-			setPasswordError('')
-			return true
+			setPasswordError('');
+			return true;
 		} else {
-			setPasswordError('Missing special character.')
-			return false
+			setPasswordError('Missing special character.');
+			return false;
 		}
 	}
 
 	function isEmpty(password: string) {
-		return password.length == 0
+		return password.length == 0;
 	}
 
 	function validatePassword() {
@@ -77,58 +77,58 @@ function LoginExistingUser(props: any) {
 			isLowerCase(passwordInput) &&
 			isSpecialCase(passwordInput)
 		) {
-			setPasswordError('')
-			setPasswordStyle(validInputStyle)
-			return true
+			setPasswordError('');
+			setPasswordStyle(validInputStyle);
+			return true;
 		} else {
-			setPasswordStyle(invalidInputStyle)
-			return false
+			setPasswordStyle(invalidInputStyle);
+			return false;
 		}
 	}
 
 	function validatePasswordBlur() {
 		if (isEmpty(passwordInput)) {
-			setPasswordError('')
-			setPasswordStyle(initialInputStyle)
+			setPasswordError('');
+			setPasswordStyle(initialInputStyle);
 		} else if (
 			isLengthy(passwordInput) &&
 			isUpperCase(passwordInput) &&
 			isLowerCase(passwordInput) &&
 			isSpecialCase(passwordInput)
 		) {
-			setPasswordError('')
-			setPasswordStyle(validInputStyle)
-		} else setPasswordStyle(invalidInputStyle)
+			setPasswordError('');
+			setPasswordStyle(validInputStyle);
+		} else setPasswordStyle(invalidInputStyle);
 	}
 
 	function validateEmail() {
-		var regex = /\S+@\S+\.\S+/
+		var regex = /\S+@\S+\.\S+/;
 		if (regex.test(emailInput)) {
-			setEmailError('')
-			setEmailStyle(validInputStyle)
-			return true
+			setEmailError('');
+			setEmailStyle(validInputStyle);
+			return true;
 		} else {
-			setEmailError('Invalid email')
-			setEmailStyle(invalidInputStyle)
-			return false
+			setEmailError('Invalid email');
+			setEmailStyle(invalidInputStyle);
+			return false;
 		}
 	}
 
 	function validateEmailBlur() {
 		if (emailInput.length === 0) {
-			setEmailError('')
-			setEmailStyle(initialInputStyle)
-			return true
+			setEmailError('');
+			setEmailStyle(initialInputStyle);
+			return true;
 		}
-		var regex = /\S+@\S+\.\S+/
+		var regex = /\S+@\S+\.\S+/;
 		if (regex.test(emailInput)) {
-			setEmailError('')
-			setEmailStyle(validInputStyle)
-			return true
+			setEmailError('');
+			setEmailStyle(validInputStyle);
+			return true;
 		} else {
-			setEmailError('Invalid email')
-			setEmailStyle(invalidInputStyle)
-			return false
+			setEmailError('Invalid email');
+			setEmailStyle(invalidInputStyle);
+			return false;
 		}
 	}
 
@@ -136,16 +136,16 @@ function LoginExistingUser(props: any) {
 		if (validateEmail() && validatePassword()) {
 			setFormState(-1000),
 				setTimeout(() => setFormVisibility('hidden'), 500),
-				setTimeout(() => props.setLoginModal(false), 500)
+				setTimeout(() => props.setLoginModal(false), 500);
 		}
 	}
 
 	const handleSubmit = (e: React.FormEvent<EventTarget>) => {
-		e.preventDefault()
-		validateEmail()
-		validatePassword()
-		requestStatus()
-	}
+		e.preventDefault();
+		validateEmail();
+		validatePassword();
+		requestStatus();
+	};
 	return (
 		<motion.div
 			animate={{ y: formState }}
@@ -188,19 +188,21 @@ function LoginExistingUser(props: any) {
 							className={emailStyle}
 							type='text'
 							placeholder='jane.smith@example.com'
-							onChange={e => setEmailInput(e.target.value)}
+							onChange={(e) => setEmailInput(e.target.value)}
 							onBlur={validateEmailBlur}
 						/>
 						<p className='mt-1 text-red-500'>{emailError}</p>
 					</div>
 
 					<div className='mt-4'>
-						<label className='mt-2 rounded-xl text-lg'>Password</label>
+						<label className='mt-2 rounded-xl text-lg'>
+							Password
+						</label>
 						<input
 							className={passwordStyle}
 							type='password'
 							placeholder='********'
-							onChange={e => setPasswordInput(e.target.value)}
+							onChange={(e) => setPasswordInput(e.target.value)}
 							onBlur={validatePasswordBlur}
 						/>
 						<p className='mt-1 text-red-500'>{passwordError}</p>
@@ -233,18 +235,23 @@ function LoginExistingUser(props: any) {
 						<IconContext.Provider value={{ size: '24px' }}>
 							<FcGoogle className='ml-4' />
 						</IconContext.Provider>
-						<div className='col-span-3 font-bold'>Continue with Google</div>
+						<div className='col-span-3 font-bold'>
+							Continue with Google
+						</div>
 					</button>
 				</div>
 
 				<div className='flex flex-row justify-center'>
-					<button className='mt-4' onClick={() => props.setNewUser(true)}>
+					<button
+						className='mt-4'
+						onClick={() => props.setNewUser(true)}
+					>
 						New to BPLR? Register.
 					</button>
 				</div>
 			</div>
 		</motion.div>
-	)
+	);
 }
 
-export default LoginExistingUser
+export default LoginExistingUser;

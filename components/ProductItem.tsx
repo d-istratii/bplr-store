@@ -1,26 +1,26 @@
-import React from "react";
-import { IconContext } from "react-icons/lib";
-import { RiHeart2Fill } from "react-icons/ri";
-import { AiOutlineShoppingCart } from "react-icons/ai";
-import Link from "next/link";
-import { useDispatch, useSelector } from "react-redux";
-import { bindActionCreators } from "redux";
-import { actionCreators, State } from "state";
-import { Provider } from "react-redux";
-import { store } from "state/store";
+import React from "react"
+import { IconContext } from "react-icons/lib"
+import { RiHeart2Fill } from "react-icons/ri"
+import { AiOutlineShoppingCart } from "react-icons/ai"
+import Link from "next/link"
+import { useDispatch, useSelector } from "react-redux"
+import { bindActionCreators } from "redux"
+import { actionCreators, State } from "state"
+import { Provider } from "react-redux"
+import { store } from "state/store"
 
 export default function ProductItem({ product }: any) {
     function computeDiscount(price: number, discount: number) {
-        const result = Math.floor(price - price * discount);
-        return result - 0.01;
+        const result = Math.floor(price - price * discount)
+        return result - 0.01
     }
 
-    const dispatch = useDispatch();
+    const dispatch = useDispatch()
 
     const { itemAddition, itemDeduction, cartInitialization } =
-        bindActionCreators(actionCreators, dispatch);
+        bindActionCreators(actionCreators, dispatch)
 
-    const amount = useSelector((state: State) => state.cart);
+    const amount = useSelector((state: State) => state.cart)
 
     return (
         <div>
@@ -88,5 +88,5 @@ export default function ProductItem({ product }: any) {
                 </Link>
             </Provider>
         </div>
-    );
+    )
 }

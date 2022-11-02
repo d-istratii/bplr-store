@@ -1,14 +1,15 @@
-import React from 'react'
-
 export default function Newsletter() {
 	return (
 		<div>
 			<div className='flex items-center justify-center bg-neutral-900 bg-gradient-to-b from-neutral-900 to-neutral-800 p-16'>
 				<div className='flex w-fit flex-col items-center space-y-8 rounded-2xl bg-neutral-700 px-48 py-16 shadow-2xl sm:w-96 sm:px-8 sm:py-8'>
-					<div className='text-2xl font-bold text-white'>NEWSLETTER</div>
+					<div className='text-2xl font-bold text-white'>
+						NEWSLETTER
+					</div>
 
 					<div className='text-neutral-300'>
-						Subscribe to receive updates, access to exclusive deals, and more.
+						Subscribe to receive updates, access to exclusive deals,
+						and more.
 					</div>
 
 					<div className='flex flex-row rounded-xl bg-neutral-600 p-3 shadow-xl autofill:bg-yellow-200 sm:w-72 sm:items-center sm:justify-center sm:p-4'>
@@ -38,5 +39,5 @@ export default function Newsletter() {
 				</svg>
 			</div>
 		</div>
-	)
+	);
 }

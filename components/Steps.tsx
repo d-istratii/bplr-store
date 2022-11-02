@@ -1,5 +1,4 @@
-import Atropos from 'atropos/react'
-import Image from 'next/image'
+// import Atropos from 'atropos/react'
 
 export default function Steps() {
 	return (
@@ -9,9 +8,10 @@ export default function Steps() {
 					<h1 className='text-3xl'>Choose your design</h1>
 					<h1 className='text-xl'>-</h1>
 					<h3 className='text-md text-right text-neutral-400 md:text-lg'>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, assumenda
-						vitae commodi quasi ipsam autem, dolore maiores soluta id provident odit
-						temporibus? Corrupti autem facilis voluptatibus porro excepturi quod non.
+						Lorem ipsum dolor sit amet consectetur adipisicing elit.
+						Quia, assumenda vitae commodi quasi ipsam autem, dolore
+						maiores soluta id provident odit temporibus? Corrupti
+						autem facilis voluptatibus porro excepturi quod non.
 					</h3>
 				</div>
 
@@ -41,5 +41,5 @@ export default function Steps() {
 				</div>
 			</div>
 		</div>
-	)
+	);
 }
