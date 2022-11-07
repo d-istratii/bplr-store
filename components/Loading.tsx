@@ -1,10 +1,16 @@
+import { motion } from 'framer-motion';
 import { CircleLoader } from 'react-spinners';
 
 function Loading() {
     return (
-        <div className='flex h-screen flex-row items-center justify-center bg-neutral-900 font-Sora'>
-            <CircleLoader color='gold' size={100} />
-        </div>
+        <motion.div
+            className='flex h-screen flex-row items-center justify-center bg-neutral-800 font-Sora'
+            transition={{ ease: 'anticipate', duration: 0.6 }}
+            animate={{ y: 0 }}
+            initial={{ y: -24 }}
+        >
+            <CircleLoader color='white' size={100} />
+        </motion.div>
     );
 }
 

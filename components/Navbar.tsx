@@ -11,10 +11,13 @@ import SearchBarList from './SearchBarList';
 import { useDispatch, useSelector } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { actionCreators, State } from 'state';
-import barba from '@barba/core';
+import { useSession, signOut } from 'next-auth/react';
+
+// import barba from '@barba/core';
 
 function Navbar(props: any) {
     const dispatch = useDispatch();
+    const { data: session } = useSession();
 
     const { itemAddition, itemDeduction, cartInitialization } =
         bindActionCreators(actionCreators, dispatch);
@@ -178,6 +181,12 @@ function Navbar(props: any) {
                             <RiAccountCircleLine onClick={toggleLoginModal} />
                         </IconContext.Provider>
                     </button>
+
+                    {session && (
+                        <button className='py-3' onClick={() => signOut()}>
+                            {session.user?.name}
+                        </button>
+                    )}
 
                     <button className='p-3 hover:rounded-xl hover:bg-neutral-800 hover:shadow-lg'>
                         <IconContext.Provider value={{ size: '24px' }}>

@@ -3,6 +3,7 @@ import { IconContext } from 'react-icons';
 import { FcGoogle } from 'react-icons/fc';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { useSession, signIn, signOut } from 'next-auth/react';
 
 function LoginExistingUser(props: any) {
     const initialInputStyle =
@@ -146,6 +147,7 @@ function LoginExistingUser(props: any) {
         validatePassword();
         requestStatus();
     };
+
     return (
         <motion.div
             animate={{ y: formState }}
@@ -231,7 +233,10 @@ function LoginExistingUser(props: any) {
                 <div className='flex flex-row justify-center'>OR</div>
 
                 <div className='flex flex-row justify-center'>
-                    <button className='grid w-96 grid-cols-5 rounded-xl border border-white py-2 shadow-xl'>
+                    <button
+                        className='grid w-96 grid-cols-5 rounded-xl border border-white py-2 shadow-xl'
+                        onClick={() => signIn('google')}
+                    >
                         <IconContext.Provider value={{ size: '24px' }}>
                             <FcGoogle className='ml-4' />
                         </IconContext.Provider>

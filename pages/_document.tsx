@@ -1,4 +1,6 @@
 import { Html, Head, Main, NextScript } from 'next/document';
+import { useState, useEffect } from 'react';
+import Loading from 'components/Loading';
 
 export default function Document() {
     return (

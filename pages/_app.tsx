@@ -1,9 +1,10 @@
 import 'styles/globals.css';
 import type { AppProps } from 'next/app';
-import { useState, useEffect, useLayoutEffect, useRef } from 'react';
+import { useState, useEffect, useLayoutEffect } from 'react';
 import Loading from 'components/Loading';
 import { SessionProvider } from 'next-auth/react';
 import { Session } from 'next-auth';
+import Router from 'next/router';
 
 function MyApp({
     Component,
@@ -11,49 +12,43 @@ function MyApp({
 }: AppProps<{
     session: Session;
 }>) {
-    const useIsomorphicLayoutEffect =
-        typeof window !== 'undefined' ? useLayoutEffect : useEffect;
+    // const useIsomorphicLayoutEffect =
+    //     typeof window !== 'undefined' ? useLayoutEffect : useEffect;
 
-    const [loading, setLoading] = useState(true);
-
-    const handleLoad = () => {
-        console.log('intra');
-        setLoading(false);
-    };
+    // const handleLoad = () => {
+    //     setLoading(false);
+    // };
 
     // useIsomorphicLayoutEffect(() => {
-    //     window.addEventListener('load', () => {
-    //         handleLoad;
-    //     });
+    //     window.addEventListener('load', handleLoad);
     //     return () => {
     //         window.removeEventListener('load', handleLoad);
     //     };
     // });
 
-    // useLayoutEffect(() => {
-    //     if (document.readyState === 'complete') {
-    //         handleLoad();
-    //     } else {
-    //         window.addEventListener('load', handleLoad);
-    //         return () => document.removeEventListener('load', handleLoad);
-    //     }
-    // });
+    const [loading, setLoading] = useState(false);
 
-    // useEffect(() => {
-    //     window.addEventListener('DOMContentLoaded', () => console.log('intra'));
-    // }, [loading]);
+    Router.events.on('routeChangeStart', (url) => {
+        setLoading(true);
+    });
+
+    Router.events.on('routeChangeComplete', (url) => {
+        setLoading(false);
+    });
 
     return (
-        <div>
-            <div className='bg-neutral-800'>
-                {loading ? (
-                    <Loading />
-                ) : (
-                    <SessionProvider session={pageProps.session}>
-                        <Component {...pageProps} />
-                    </SessionProvider>
-                )}
-            </div>
+        <div className='bg-neutral-800'>
+            {loading ? (
+                <Loading />
+            ) : (
+                <SessionProvider session={pageProps.session}>
+                    <Component {...pageProps} />
+                </SessionProvider>
+            )}
+
+            {/* <SessionProvider session={pageProps.session}>
+                <Component {...pageProps} />
+            </SessionProvider> */}
         </div>
     );
 }
