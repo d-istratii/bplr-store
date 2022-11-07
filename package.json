@@ -8,6 +8,7 @@
         "lint": "next lint"
     },
     "dependencies": {
+        "@barba/core": "^2.9.7",
         "@emotion/react": "^11.7.1",
         "@emotion/styled": "^11.6.0",
         "@mui/material": "^5.4.0",
@@ -20,6 +21,7 @@
         "babel": "^6.23.0",
         "express": "^4.17.3",
         "framer-motion": "^6.2.3",
+        "gsap": "^3.11.3",
         "jsonwebtoken": "^8.5.1",
         "minimist": "^1.2.6",
         "next": "^12.3.1",
@@ -29,6 +31,7 @@
         "react": "17.0.2",
         "react-dom": "17.0.2",
         "react-icons": "^4.3.1",
+        "react-loading": "^2.0.3",
         "react-redux": "^8.0.4",
         "react-scrolllock": "^5.0.1",
         "react-slick": "^0.29.0",

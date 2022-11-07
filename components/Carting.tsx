@@ -9,7 +9,7 @@ function Carting() {
         return result - 0.01;
     }
     return (
-        <div className='bg-neutral-800'>
+        <div>
             <h1 className='flex flex-col items-center justify-center  pt-36 pb-16 text-5xl font-bold tracking-tight text-white'>
                 SHOPPING BAG
             </h1>
@@ -73,7 +73,7 @@ function Carting() {
                                             </p>
                                         </div>
 
-                                        <span className='ml-1 inline text-xs text-neutral-400'>
+                                        <span className='ml-1 inline text-xs text-neutral-300'>
                                             (VAT included)
                                         </span>
                                         <div className='mt-2 flex flex-row space-x-4'>
@@ -107,7 +107,7 @@ function Carting() {
                                         <p className='text-lg'>
                                             € {product.price - 0.01}
                                         </p>
-                                        <span className='ml-1 inline text-xs text-neutral-400'>
+                                        <span className='ml-1 inline text-xs text-neutral-300'>
                                             (VAT included)
                                         </span>
                                         <div className='mt-2 flex flex-row space-x-4'>
@@ -162,7 +162,7 @@ function Carting() {
                             </h4>
                         </div>
 
-                        <div className='flex flex-row justify-end text-xs text-neutral-400'>
+                        <div className='flex flex-row justify-end text-xs text-neutral-300'>
                             (VAT included)
                         </div>
                     </div>
