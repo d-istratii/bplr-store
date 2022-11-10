@@ -24,7 +24,7 @@ function LoginExistingUser(props: any) {
     const [formState, setFormState] = useState(0);
     const [formVisibility, setFormVisibility] = useState('');
 
-    function isLengthy(password: string) {
+    function isLengthy(password: string): boolean {
         if (password.length >= 8) {
             setPasswordError('');
             return true;
@@ -34,7 +34,7 @@ function LoginExistingUser(props: any) {
         }
     }
 
-    function isUpperCase(password: string) {
+    function isUpperCase(password: string): boolean {
         var regex = /[A-Z]/;
         if (regex.test(password)) {
             setPasswordError('');
@@ -45,7 +45,7 @@ function LoginExistingUser(props: any) {
         }
     }
 
-    function isLowerCase(password: string) {
+    function isLowerCase(password: string): boolean {
         var regex = /[a-z]/;
         if (regex.test(password)) {
             setPasswordError('');
@@ -56,7 +56,7 @@ function LoginExistingUser(props: any) {
         }
     }
 
-    function isSpecialCase(password: string) {
+    function isSpecialCase(password: string): boolean {
         var regex = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
         if (regex.test(password)) {
             setPasswordError('');
@@ -67,11 +67,11 @@ function LoginExistingUser(props: any) {
         }
     }
 
-    function isEmpty(password: string) {
+    function isEmpty(password: string): boolean {
         return password.length == 0;
     }
 
-    function validatePassword() {
+    function validatePassword(): boolean {
         if (
             isLengthy(passwordInput) &&
             isUpperCase(passwordInput) &&
@@ -87,7 +87,7 @@ function LoginExistingUser(props: any) {
         }
     }
 
-    function validatePasswordBlur() {
+    function validatePasswordBlur(): void {
         if (isEmpty(passwordInput)) {
             setPasswordError('');
             setPasswordStyle(initialInputStyle);
@@ -102,7 +102,7 @@ function LoginExistingUser(props: any) {
         } else setPasswordStyle(invalidInputStyle);
     }
 
-    function validateEmail() {
+    function validateEmail(): boolean {
         var regex = /\S+@\S+\.\S+/;
         if (regex.test(emailInput)) {
             setEmailError('');
@@ -115,7 +115,7 @@ function LoginExistingUser(props: any) {
         }
     }
 
-    function validateEmailBlur() {
+    function validateEmailBlur(): boolean {
         if (emailInput.length === 0) {
             setEmailError('');
             setEmailStyle(initialInputStyle);
@@ -133,7 +133,7 @@ function LoginExistingUser(props: any) {
         }
     }
 
-    function requestStatus() {
+    function requestStatus(): void {
         if (validateEmail() && validatePassword()) {
             setFormState(-1000),
                 setTimeout(() => setFormVisibility('hidden'), 500),

@@ -59,7 +59,7 @@ export default function LoginNewUser(props: any) {
     const [formState, setFormState] = useState(0);
     const [formVisibility, setFormVisibility] = useState('');
 
-    function validateName() {
+    function validateName(): boolean {
         if (nameInput.length == 0) {
             setNameError('Name input is empty.');
             setNameStyle(invalidInputStyle);
@@ -75,7 +75,7 @@ export default function LoginNewUser(props: any) {
         }
     }
 
-    function validateNameBlur() {
+    function validateNameBlur(): void {
         if (nameInput.length == 0) {
             setNameError('');
             setNameStyle(initialInputStyle);
@@ -88,7 +88,7 @@ export default function LoginNewUser(props: any) {
         }
     }
 
-    function isLengthy(password: string) {
+    function isLengthy(password: string): boolean {
         if (password.length >= 8) {
             setPasswordError('');
             return true;
@@ -98,7 +98,7 @@ export default function LoginNewUser(props: any) {
         }
     }
 
-    function isUpperCase(password: string) {
+    function isUpperCase(password: string): boolean {
         var regex = /[A-Z]/;
         if (regex.test(password)) {
             setPasswordError('');
@@ -109,7 +109,7 @@ export default function LoginNewUser(props: any) {
         }
     }
 
-    function isLowerCase(password: string) {
+    function isLowerCase(password: string): boolean {
         var regex = /[a-z]/;
         if (regex.test(password)) {
             setPasswordError('');
@@ -120,7 +120,7 @@ export default function LoginNewUser(props: any) {
         }
     }
 
-    function isSpecialCase(password: string) {
+    function isSpecialCase(password: string): boolean {
         var regex = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
         if (regex.test(password)) {
             setPasswordError('');
@@ -131,10 +131,10 @@ export default function LoginNewUser(props: any) {
         }
     }
 
-    function isEmpty(password: string) {
+    function isEmpty(password: string): boolean {
         return password.length == 0;
     }
-    function validatePassword() {
+    function validatePassword(): boolean {
         if (
             isLengthy(passwordInput) &&
             isUpperCase(passwordInput) &&
@@ -150,7 +150,7 @@ export default function LoginNewUser(props: any) {
         }
     }
 
-    function validatePasswordBlur() {
+    function validatePasswordBlur(): void {
         if (isEmpty(passwordInput)) {
             setPasswordError('');
             setPasswordStyle(initialInputStyle);
@@ -165,7 +165,7 @@ export default function LoginNewUser(props: any) {
         } else setPasswordStyle(invalidInputStyle);
     }
 
-    function validateEmail() {
+    function validateEmail(): boolean {
         var regex = /\S+@\S+\.\S+/;
         if (regex.test(emailInput)) {
             setEmailError('');
@@ -178,7 +178,7 @@ export default function LoginNewUser(props: any) {
         }
     }
 
-    function validateEmailBlur() {
+    function validateEmailBlur(): boolean {
         if (emailInput.length === 0) {
             setEmailError('');
             setEmailStyle(initialInputStyle);
@@ -196,7 +196,7 @@ export default function LoginNewUser(props: any) {
         }
     }
 
-    function requestStatus() {
+    function requestStatus(): void {
         if (validateName() && validateEmail() && validatePassword()) {
             setFormState(-1000),
                 setTimeout(() => setFormVisibility('hidden'), 500),

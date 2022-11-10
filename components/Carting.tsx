@@ -4,7 +4,7 @@ import { data } from 'utils/data';
 import { motion } from 'framer-motion';
 
 function Carting() {
-    function computeDiscount(price: number, discount: number) {
+    function computeDiscount(price: number, discount: number): number {
         const result = Math.floor(price - price * discount);
         return result - 0.01;
     }

@@ -10,21 +10,19 @@ function Login(props: any) {
         <div>
             {props.loginModal ? (
                 <div className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2'>
-                    {!newUser ? (
-                        <motion.div>
+                    <motion.div>
+                        {!newUser ? (
                             <LoginExistingUser
                                 setLoginModal={props.setLoginModal}
                                 setNewUser={setNewUser}
                             />
-                        </motion.div>
-                    ) : (
-                        <motion.div>
+                        ) : (
                             <LoginNewUser
                                 setLoginModal={props.setLoginModal}
                                 setNewUser={setNewUser}
                             />
-                        </motion.div>
-                    )}
+                        )}
+                    </motion.div>
                 </div>
             ) : null}
         </div>
