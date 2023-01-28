@@ -7,7 +7,7 @@ async function main() {
         data: {
             salutation: 'Mr.',
             name: 'Daniel Istratii',
-            email: 'istratiidannyel@gmail.com',
+            email: 'istratiidannyelzzze@gmail.com',
         },
     });
 
@@ -19,7 +19,25 @@ async function main() {
         },
     });
 
+    const countUsers = await prisma.user.count({});
+
+    const result = await prisma.user.findUnique({
+        where: {
+            email: 'istratiidannyely@gmail.com',
+        },
+    });
+
     console.table(users);
+    console.log(countUsers);
+    console.log(result);
 }
 
-main();
+main()
+    .then(async () => {
+        await prisma.$disconnect();
+    })
+    .catch(async (e) => {
+        console.error(e);
+        await prisma.$disconnect();
+        process.exit(1);
+    });

@@ -53,8 +53,12 @@ export default function LoginNewUser(props: any) {
     const [emailStyle, setEmailStyle] = useState(initialInputStyle);
 
     const [passwordInput, setPasswordInput] = useState('');
+    const [passwordConfirmInput, setPasswordConfirmInput] = useState('');
     const [passwordError, setPasswordError] = useState('');
+    const [passwordConfirmError, setPasswordConfirmError] = useState('');
     const [passwordStyle, setPasswordStyle] = useState(initialInputStyle);
+    const [passwordConfirmStyle, setPasswordConfirmStyle] =
+        useState(initialInputStyle);
 
     const [formState, setFormState] = useState(0);
     const [formVisibility, setFormVisibility] = useState('');
@@ -165,6 +169,19 @@ export default function LoginNewUser(props: any) {
         } else setPasswordStyle(invalidInputStyle);
     }
 
+    function confirmPassword(): void {
+        if (
+            passwordConfirmInput.length <= 8 &&
+            passwordConfirmInput === passwordInput
+        ) {
+            setPasswordError('');
+            setPasswordConfirmStyle(initialInputStyle);
+        } else {
+            setPasswordConfirmError('Passwords do not match.');
+            setPasswordConfirmStyle(invalidInputStyle);
+        }
+    }
+
     function validateEmail(): boolean {
         var regex = /\S+@\S+\.\S+/;
         if (regex.test(emailInput)) {
@@ -250,11 +267,23 @@ export default function LoginNewUser(props: any) {
                 <form autoComplete='off' onSubmit={handleSubmit}>
                     {/* <form onSubmit={handleSubmit}> */}
                     <div className='mt-3'>
-                        <label className='text-lg'>Name</label>
+                        <label className='text-lg'>First Name</label>
                         <input
                             className={nameStyle}
                             type='text'
-                            placeholder='Jane Smith'
+                            placeholder='Jane'
+                            onChange={(e) => setNameInput(e.target.value)}
+                            onBlur={validateNameBlur}
+                        />
+                        <p className='mt-1 text-red-500'>{nameError}</p>
+                    </div>
+
+                    <div className='mt-3'>
+                        <label className='text-lg'>Last Name</label>
+                        <input
+                            className={nameStyle}
+                            type='text'
+                            placeholder='Smith'
                             onChange={(e) => setNameInput(e.target.value)}
                             onBlur={validateNameBlur}
                         />
@@ -283,6 +312,22 @@ export default function LoginNewUser(props: any) {
                             onBlur={validatePasswordBlur}
                         />
                         <p className='mt-1 text-red-500'>{passwordError}</p>
+                    </div>
+
+                    <div className='mt-3'>
+                        <label className='text-lg'>Confirm Password</label>
+                        <input
+                            className={passwordConfirmStyle}
+                            type='password'
+                            placeholder='********'
+                            onChange={(e) =>
+                                setPasswordConfirmInput(e.target.value)
+                            }
+                            onBlur={confirmPassword}
+                        />
+                        <p className='mt-1 text-red-500'>
+                            {passwordConfirmError}
+                        </p>
                     </div>
 
                     <div className='pt-1 text-sm'>
