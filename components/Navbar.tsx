@@ -34,6 +34,7 @@ function Navbar(props: any) {
     const [navbarStyle, setNavbarStyle] = useState(initialNavbarStyle);
     const [dropdownMenu, setDropdownMenu] = useState(false);
     const [loginModal, setLoginModal] = useState(false);
+    const [accountModal, setAccountModal] = useState(false);
 
     const changeNavbarStyleOnScroll = () => {
         window.scrollY === 0 ? setNavbarState(false) : setNavbarState(true);
@@ -46,6 +47,10 @@ function Navbar(props: any) {
 
     const toggleLoginModal = () => {
         setLoginModal((loginModal) => !loginModal);
+    };
+
+    const toggleAccountModal = () => {
+        setAccountModal((accountModal) => !accountModal);
     };
 
     const changeNavbarStyleOnClick = () => {
@@ -165,29 +170,6 @@ function Navbar(props: any) {
                 {/* Right section icons */}
                 <div className='flex space-x-2 text-white'>
                     <SearchBar />
-
-                    <button className='p-3 hover:rounded-xl hover:bg-neutral-800 hover:shadow-lg'>
-                        <Modal
-                            className='font-Sora'
-                            open={loginModal}
-                            onClose={() => setLoginModal(false)}
-                        >
-                            <Login
-                                loginModal={loginModal}
-                                setLoginModal={setLoginModal}
-                            />
-                        </Modal>
-                        <IconContext.Provider value={{ size: '24px' }}>
-                            <RiAccountCircleLine onClick={toggleLoginModal} />
-                        </IconContext.Provider>
-                    </button>
-
-                    {session && (
-                        <button className='py-3' onClick={() => signOut()}>
-                            {session.user?.name}
-                        </button>
-                    )}
-
                     <button className='p-3 hover:rounded-xl hover:bg-neutral-800 hover:shadow-lg'>
                         <IconContext.Provider value={{ size: '24px' }}>
                             <Link href='/wishlist' passHref>
@@ -215,6 +197,42 @@ function Navbar(props: any) {
                                 </div>
                             </Link>
                         </IconContext.Provider>
+                    </button>
+                    <button className='p-3 hover:rounded-xl hover:bg-neutral-800 hover:shadow-lg'>
+                        <Modal
+                            className='font-Sora'
+                            open={loginModal}
+                            onClose={() => setLoginModal(false)}
+                        >
+                            <Login
+                                loginModal={loginModal}
+                                setLoginModal={setLoginModal}
+                            />
+                        </Modal>
+
+                        {!session ? (
+                            <IconContext.Provider value={{ size: '24px' }}>
+                                <RiAccountCircleLine
+                                    onClick={toggleLoginModal}
+                                />
+                            </IconContext.Provider>
+                        ) : (
+                            <Link href='account?keyword=details' passHref>
+                                <div className='flex flex-row space-x-2'>
+                                    <IconContext.Provider
+                                        value={{ size: '24px' }}
+                                    >
+                                        <RiAccountCircleLine />
+                                    </IconContext.Provider>
+                                    {/* <button onClick={() => signOut()}>
+                                        {session?.user?.name}
+                                    </button> */}
+                                    <button onClick={() => {}}>
+                                        {session?.user?.name}
+                                    </button>
+                                </div>
+                            </Link>
+                        )}
                     </button>
                 </div>
             </motion.nav>
